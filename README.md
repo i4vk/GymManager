@@ -11,4 +11,4 @@ Tanto de los clientes como de los empleados se mantendrán distintos datos que p
 ## Implementación
 
 La implementación se realizará usando el lenguaje **python** junto con la biblioteca **flask**.  
-La decisión de cómo se realizará la base de datos se hará posteriormente.
+La decisión de cómo se realizará la base de datos se hará posteriormente, a la hora de ser implementado.
