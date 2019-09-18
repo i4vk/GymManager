@@ -1,4 +1,4 @@
-#GymManager
+# GymManager
 
 ## Gestor de usuarios y empleados de un gimnasio
 
