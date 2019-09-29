@@ -2,13 +2,32 @@
 
 ## Gestor de usuarios y empleados de un gimnasio
 
-La idea es crear una API que permita manejar una base de datos en la cual se podrán almacenar datos de los clientes suscritos al gimnasio, los cuales podrán tener además distintos rangos entre ellos. Por ejemplo, clientes VIP con acceso a todas las salas, clientes básicos, etc.
+La idea es crear una API que permita manejar una base de datos en la cual se podrán almacenar datos de los clientes suscritos al gimnasio, los cuales podrán tener además distintas tarifas cada uno. Por ejemplo, clientes completos, con acceso al gimnasio todos los días de la semana, o clientes básicos, con acceso un número de días limitado.
 
-Además, permitirá mantener también un registro de los empleados del mismo.
+De dichos clientes se almacenarán distintos datos que podrían ser útiles, como son por ejemplo del nombre completo, el teléfono, el DNI, y el número de socio, que será único para cada uno de los clientes. También será importante almacenar la tarifa asociada a dicho cliente.
 
-Tanto de los clientes como de los empleados se mantendrán distintos datos que podrían ser útiles, como por ejemplo el nombre completo, el teléfono, el DNI, etc.
+## Funcionalidades
+
+Este microservicio formaría parte de una aplicación completa que maneje el sistema informático completo de un gimnasio, tales como los accesos al gimnasio, el registro de clientes, etc.
+
+Sin embargo, la funcionalidad de este microservicio que vamos a desarrollar durante la asignatura va a encargarse únicamente de manejar la base de datos de clientes.  
+Para llevar a cabo esta función, debe disponer de las siguientes funcionalidades:
+
+  - Crear una nueva base de datos de clientes.
+  - Añadir un nuevo cliente a la base de datos.
+  - Modificar los datos de alguno de los clientes ya creados.
+  - Eliminar clientes de la base de datos.
+  - Consultar la lista completa de clientes.
+  - Consultar los datos de un cliente específico.
 
 ## Implementación
 
-La implementación se realizará usando el lenguaje **python** junto con la biblioteca **flask**.  
-La decisión de cómo se realizará la base de datos se hará posteriormente, a la hora de ser implementado.
+*Coming soon.*
+
+## Documentación
+
+*Coming soon.*
+
+## Instalación
+
+*Coming soon.*
