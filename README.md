@@ -22,7 +22,15 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
 
 ## Implementación
 
-*Coming soon.*
+Las herramientas utilizadas para llevar a cabo el proyecto serán las siguientes:
+
+  - Lenguaje de programación: **Python3**.
+  - Framework de aplicaciones web: **Flask**.
+  - **Virtualenv** para crear el entorno virtual sobre el que trabajar.
+  - Base de datos: **MongoDB**.
+  - Sistema de logs: **Logging** (módulo de python)
+  - Test: **Unittest**
+  - **Travis-CI** para la integración continua.
 
 ## Documentación
 
