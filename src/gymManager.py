@@ -40,8 +40,17 @@ class GymManager:
 
     def eliminarCliente(self, id):
         for i in range(len(self.db["clientes"])):
-            if self.db["clientes"][i]["id"] == 2:
+            if self.db["clientes"][i]["id"] == id:
                 self.db["clientes"].pop(i)
+
+    def listarClientes(self):
+        return self.db["clientes"]
+
+    def getCliente(self, id):
+        for i in range(len(self.db["clientes"])):
+            if self.db["clientes"][i]["id"] == id:
+                return self.db["clientes"][i]
+        return None
 
 
 
@@ -50,6 +59,4 @@ if __name__ == "__main__":
 
     un_cliente = {"nombre": "Antonio", "apellidos": "García García", "dni":"1234", "email": "papaya"}
     clientes.insertarCliente(un_cliente)
-    print(clientes.db, "\n")
-    clientes.eliminarCliente(2)
-    print(clientes.db)
+    print(clientes.listarClientes())
