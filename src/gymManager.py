@@ -37,6 +37,7 @@ class GymManager:
     def insertarCliente(self, cliente):
         cliente["id"] = self.num_clientes + 1
         self.db["clientes"].append(cliente)
+        self.num_clientes = self.num_clientes + 1
 
     def eliminarCliente(self, id):
         for i in range(len(self.db["clientes"])):
