@@ -4,4 +4,6 @@ python:
 cache: pip3
 install:
   - pip3 install -r requirements.txt
-script: python -m unittest
+script: 
+	cd ./tests/
+	python -m unittest
