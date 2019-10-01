@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/i4vk/GymManager.svg?branch=master)](https://travis-ci.org/i4vk/GymManager)
+
 # GymManager
 
 ## Gestor de usuarios y empleados de un gimnasio
