@@ -3,7 +3,7 @@
 import json
 import os.path as path
 
-class Database:
+class GymManager:
     db = None
     num_clientes = None
 
@@ -46,7 +46,7 @@ class Database:
 
 
 if __name__ == "__main__":
-    clientes = Database()
+    clientes = GymManager()
 
     un_cliente = {"nombre": "Antonio", "apellidos": "García García", "dni":"1234", "email": "papaya"}
     clientes.insertarCliente(un_cliente)
