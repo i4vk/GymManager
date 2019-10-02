@@ -29,10 +29,12 @@ class GymManager:
             json.dump(self.db, f, indent=2)
 
         self.num_clientes = len(self.db["clientes"])
+        f.close()
 
     def save(self, path):
         f = open(path, 'w')
         json.dump(self.db, f, indent=2)
+        f.close()
 
     def insertarCliente(self, cliente):
         cliente["id"] = self.num_clientes + 1
