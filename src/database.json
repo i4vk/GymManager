@@ -1,0 +1,11 @@
+{
+	"clientes": [
+		{
+			"nombre": "Iván",
+			"apellidos": "Garzón Segura",
+			"dni": "1234567S",
+			"email": "ivangarzon98@correo.ugr.es",
+			"id": 1
+		}
+	]
+}
