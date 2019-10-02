@@ -13,7 +13,7 @@ class TestDelete(unittest.TestCase):
         self.clientes.insertarCliente(un_cliente)
 
         id_cliente = self.clientes.num_clientes
-        #self.clientes.eliminarCliente(id_cliente)
+        self.clientes.eliminarCliente(id_cliente)
 
         self.assertIsNone(self.clientes.getCliente(id_cliente))
 
