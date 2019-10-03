@@ -50,7 +50,7 @@ class GymManager {
   }
 
   eliminarCliente(id) {
-    encontrado = false;
+    var encontrado = false;
 
     for (var i = 0; i < this.db["clientes"].length && !encontrado; i++) {
       if (this.db["clientes"][i]["id"] == id) {
@@ -58,6 +58,8 @@ class GymManager {
         encontrado = true;
       }
     }
+
+    this.num_clientes -= 1;
 
     if (!encontrado) {
       return false;
