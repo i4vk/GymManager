@@ -3,7 +3,7 @@ var GymManager = require('../src/gymManager.js');
 var clientes = new GymManager('./test/data/database.json');
 
 beforeEach(() => {
-  clientes.load('./test/data/database.json');
+  clientes.clear();
 });
 
 test('Inserta correctamente', () => {
@@ -49,4 +49,11 @@ test('Lista correctamente', () => {
   };
 
   expect(clientes.listarClientes()).toEqual(db_esperada);
+});
+
+test('Obtiene un cliente correctamente', () => {
+  var un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es"};
+  clientes.insert(un_cliente);
+
+  expect(clientes.getCliente(clientes.num_clientes)).toEqual(un_cliente);
 });
