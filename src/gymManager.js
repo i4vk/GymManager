@@ -45,6 +45,11 @@ class GymManager {
     });
   }
 
+  clear() {
+    this.db = {clientes:{}};
+    this.num_clientes = 0;
+  }
+
   insert(cliente) {
     var list_keys = Object.keys(this.db["clientes"]);
 
