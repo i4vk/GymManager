@@ -34,7 +34,7 @@ class GymManager {
       this.db=json_db;
     }
 
-    this.num_clientes = this.db["clientes"].length;
+    this.num_clientes = Object.keys(this.db["clientes"]).length;
   }
 
   save(pathfile) {
@@ -86,9 +86,3 @@ class GymManager {
 }
 
 module.exports = GymManager;
-
-var clientes = new GymManager("./test/data/database.json");
-console.log(clientes.db);
-var nuevo_cliente = {nombre:"Antonio",apellidos:"Papaya Telescopio",dni:"1234567S",email:"papaya@correo.ugr.es"};
-clientes.insert(nuevo_cliente);
-console.log(clientes.db);
