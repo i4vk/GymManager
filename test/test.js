@@ -25,3 +25,28 @@ test('Borra correctamente', () => {
   expect(clientes.eliminarCliente(1)).toBeTruthy();
   expect(clientes.num_clientes).toBe(ini_num_clientes-1);
 });
+
+test('Lista correctamente', () => {
+  var un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es"};
+  var un_cliente2 = {nombre:"Antonio",apellidos:"Papaya Telescopio",dni:"1234567S",email:"papaya@correo.ugr.es"};
+
+  clientes.insert(un_cliente);
+  clientes.insert(un_cliente2);
+
+  db_esperada = {
+    "1": {
+      "nombre": "Iván",
+      "apellidos": "Garzón Segura",
+      "dni": "1234567S",
+      "email": "ivangarzon98@correo.ugr.es"
+    },
+    "2": {
+      "nombre": "Antonio",
+      "apellidos": "Papaya Telescopio",
+      "dni": "1234567S",
+      "email": "papaya@correo.ugr.es"
+    }
+  };
+
+  expect(clientes.listarClientes()).toEqual(db_esperada);
+});
