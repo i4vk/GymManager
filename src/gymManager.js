@@ -6,7 +6,8 @@ class GymManager {
       var json_db=fs.readFileSync(pathfile, 'utf8');
       this.db=JSON.parse(json_db);
     } catch (error){
-      var json_db = {clientes:[{nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es",id: 1}]};
+      //var json_db = {clientes:{"1":{nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es",id: 1}}};
+      var json_db = {clientes:{}};
       fs.writeFile(pathfile, JSON.stringify(json_db, null, 2), function(err) {
         if (err) {
           console.log('Error de escritura');
@@ -15,7 +16,7 @@ class GymManager {
       this.db=json_db;
     }
 
-    this.num_clientes = this.db["clientes"].length;
+    this.num_clientes = Object.keys(this.db["clientes"]).length;
   }
 
   load(pathfile) {
@@ -23,7 +24,8 @@ class GymManager {
       var json_db=fs.readFileSync(pathfile, 'utf8');
       this.db=JSON.parse(json_db);
     } catch (error){
-      var json_db = {clientes:[{nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es",id: 1}]};
+      //var json_db = {clientes:{"1":{nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es",id: 1}}};
+      var json_db = {clientes:{}};
       fs.writeFile(pathfile, JSON.stringify(json_db, null, 2), function(err) {
         if (err) {
           console.log('Error de escritura');
@@ -44,27 +46,29 @@ class GymManager {
   }
 
   insert(cliente) {
-    cliente["id"] = this.num_clientes + 1;
-    this.db["clientes"].push(cliente);
+    var list_keys = Object.keys(this.db["clientes"]);
+
+    var id_cliente = this.num_clientes;
+    var found;
+
+    do {
+      id_cliente = id_cliente+1;
+      found = list_keys.find(function(element) {
+        return element == id_cliente;
+      });
+    } while (found != undefined);
+
+    this.db["clientes"][id_cliente] = cliente;
     this.num_clientes += 1;
   }
 
   eliminarCliente(id) {
-    var encontrado = false;
-
-    for (var i = 0; i < this.db["clientes"].length && !encontrado; i++) {
-      if (this.db["clientes"][i]["id"] == id) {
-        this.db["clientes"].splice(i,1);
-        encontrado = true;
-      }
-    }
-
-    this.num_clientes -= 1;
-
-    if (!encontrado) {
-      return false;
-    }else {
+    if (id in this.db["clientes"]) {
+      delete this.db["clientes"][id];
+      this.num_clientes -= 1;
       return true;
+    }else {
+      return false;
     }
   }
 
@@ -73,13 +77,18 @@ class GymManager {
   }
 
   getCliente(id) {
-    for (var i = 0; i < this.db["clientes"].length; i++) {
-      if (this.db["clientes"][i]["id"] == id) {
-        return this.db["clientes"][i];
-      }
+    if (id in this.db["clientes"]) {
+      return this.db["clientes"][id];
+    }else {
+      return null;
     }
-    return null;
   }
 }
 
 module.exports = GymManager;
+
+var clientes = new GymManager("./test/data/database.json");
+console.log(clientes.db);
+var nuevo_cliente = {nombre:"Antonio",apellidos:"Papaya Telescopio",dni:"1234567S",email:"papaya@correo.ugr.es"};
+clientes.insert(nuevo_cliente);
+console.log(clientes.db);
