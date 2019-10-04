@@ -88,6 +88,14 @@ class GymManager {
       return null;
     }
   }
+
+  update(id, campo, nuevo_valor) {
+    if (id in this.db["clientes"]) {
+      this.db["clientes"][id][campo] = nuevo_valor;
+    }else {
+      return false;
+    }
+  }
 }
 
 module.exports = GymManager;
