@@ -26,6 +26,14 @@ test('Borra correctamente', () => {
   expect(clientes.num_clientes).toBe(ini_num_clientes-1);
 });
 
+test('Modifica correctamente', () => {
+  un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es"};
+  clientes.insert(un_cliente);
+  clientes.update(1, "nombre", 'Roberto');
+
+  expect(clientes.db["clientes"][1]["nombre"]).toBe('Roberto');
+});
+
 test('Lista correctamente', () => {
   var un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es"};
   var un_cliente2 = {nombre:"Antonio",apellidos:"Papaya Telescopio",dni:"1234567S",email:"papaya@correo.ugr.es"};
