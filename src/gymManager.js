@@ -96,6 +96,18 @@ class GymManager {
       return false;
     }
   }
+
+  searchByName(nombre, apellidos) {
+    var id;
+    for (id of Object.keys(this.db["clientes"])) {
+      if (this.db["clientes"][id]["nombre"].toUpperCase() == nombre.toUpperCase() &&
+          this.db["clientes"][id]["apellidos"].toUpperCase() == apellidos.toUpperCase()) {
+        return id;
+      }
+    }
+
+    return false;
+  }
 }
 
 module.exports = GymManager;
