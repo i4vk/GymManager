@@ -65,3 +65,16 @@ test('Obtiene un cliente correctamente', () => {
 
   expect(clientes.getCliente(clientes.num_clientes)).toEqual(un_cliente);
 });
+
+test('Busca por nombre correctamente', () => {
+  var un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es"};
+  clientes.insert(un_cliente);
+
+  id_cliente = clientes.searchByName("iván", "garzón segura");
+  expect(id_cliente).toBe("1");
+
+  id_cliente_falso = clientes.searchByName("antoñito", "garzón segura");
+  expect(id_cliente_falso).toBeFalsy();
+
+  expect(clientes.db["clientes"][id_cliente]).toEqual(un_cliente);
+});
