@@ -1,4 +1,4 @@
-var fs=require('fs')
+var fs=require('fs');
 
 class GymManager {
   constructor(pathfile) {
@@ -38,11 +38,15 @@ class GymManager {
   }
 
   save(pathfile) {
-    fs.writeFile(pathfile, JSON.stringify(this.db, null, 2), function(err) {
-      if (err) {
-        console.log('Error de escritura');
-      }
-    });
+    return new Promise(function(resolve, reject) {
+      fs.writeFile(pathfile, JSON.stringify(this.db, null, 2), function(err) {
+        if (err) {
+          reject(err);
+        }else {
+          resolve();
+        }
+      })
+    }.bind(this));
   }
 
   clear() {
