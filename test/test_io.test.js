@@ -1,6 +1,7 @@
 var GymManager = require('../src/gymManager.js');
 
 var clientes = new GymManager('./test/data/database.json');
+var fs=require('fs');
 
 beforeEach(() => {
   clientes.clear();
@@ -38,8 +39,13 @@ test('Guarda correctamente', async () => {
   await clientes.save("./test/data/temp.json");
   db_esperada = clientes.db;
 
-  clientes.clear();
   clientes.load("./test/data/temp.json");
+  fs.unlink("./test/data/temp.json", (err) => {
+    if (err) {
+      console.error(err);
+      return
+    }
+  });
 
   expect(clientes.db).toEqual(db_esperada);
 });
