@@ -78,3 +78,16 @@ test('Busca por nombre correctamente', () => {
 
   expect(clientes.db["clientes"][id_cliente]).toEqual(un_cliente);
 });
+
+test('Busca por DNI correctamente', () => {
+  var un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es"};
+  clientes.insert(un_cliente);
+
+  id_cliente = clientes.searchByDNI("1234567S");
+  expect(id_cliente).toBe("1");
+
+  id_cliente_falso = clientes.searchByDNI("987643245F");
+  expect(id_cliente_falso).toBeFalsy();
+
+  expect(clientes.db["clientes"][id_cliente]).toEqual(un_cliente);
+});
