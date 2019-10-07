@@ -112,6 +112,17 @@ class GymManager {
 
     return false;
   }
+
+  searchByDNI(dni) {
+    var id;
+    for (id of Object.keys(this.db["clientes"])) {
+      if (this.db["clientes"][id]["dni"].toUpperCase() == dni.toUpperCase()) {
+        return id;
+      }
+    }
+
+    return false;
+  }
 }
 
 module.exports = GymManager;
