@@ -48,7 +48,7 @@ Además de eso, también posee métodos para cargar una base de datos sobre la q
 
 Los test implementados sobre dicha clase implementan una comprobación para cada uno de los métodos de la clase, y comprueban si realmente producen el resultado esperado con una serie de pruebas.
 
-Se puede encontrar la documentación específica de la clase en [este enlace](https://github.com/i4vk/GymManager/tree/master/doc/GymManager.html).
+Se puede encontrar la documentación específica de la clase en [este enlace](https://github.com/i4vk/GymManager/tree/master/doc/GymManager.md).
 
 ## Herramientas utilizadas
 
