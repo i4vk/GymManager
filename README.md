@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/i4vk/GymManager.svg?branch=master)](https://travis-ci.org/i4vk/GymManager) [![Run Status](https://api.shippable.com/projects/5d9ca4ed27d7a0000752c711/badge?branch=master)]() [![Coverage Status](https://coveralls.io/repos/github/i4vk/GymManager/badge.svg?branch=master)](https://coveralls.io/github/i4vk/GymManager?branch=master)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Build Status](https://travis-ci.org/i4vk/GymManager.svg?branch=master)](https://travis-ci.org/i4vk/GymManager) [![Run Status](https://api.shippable.com/projects/5d9ca4ed27d7a0000752c711/badge?branch=master)]() [![Coverage Status](https://coveralls.io/repos/github/i4vk/GymManager/badge.svg?branch=master)](https://coveralls.io/github/i4vk/GymManager?branch=master)
 
 # GymManager
 
@@ -7,6 +7,22 @@
 La idea es crear una API que permita manejar una base de datos en la cual se podrán almacenar datos de los clientes suscritos al gimnasio, los cuales podrán tener además distintas tarifas cada uno. Por ejemplo, clientes completos, con acceso al gimnasio todos los días de la semana, o clientes básicos, con acceso un número de días limitado.
 
 De dichos clientes se almacenarán distintos datos que podrían ser útiles, como son por ejemplo del nombre completo, el teléfono, el DNI, y el número de socio, que será único para cada uno de los clientes. También será importante almacenar la tarifa asociada a dicho cliente.
+
+## Instalación
+
+Para instalarlo, primero de todo es necesario clonar el repositorio:
+
+    $ git clone https://github.com/i4vk/GymManager.git
+
+Posteriormente, instalamos todas las dependencias:
+
+    $ npm install
+
+## Test
+
+Finalmente, si queremos ejecutar los test, escribiremos el siguiente comando:
+
+    $ npm test
 
 ## Funcionalidades
 
@@ -22,33 +38,26 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
   - Consultar la lista completa de clientes.
   - Consultar los datos de un cliente específico.
 
-## Implementación
+## Descripción de la clase
 
-Las herramientas utilizadas para llevar a cabo el proyecto serán las siguientes:
+El servicio completo del que este microservicio formaría parte consiste en la gestión completa de un gimnasio. Es decir, la gestión de los empleados, los clientes, las tarifas, etc.
 
-  - Lenguaje de programación: **Javascript**.  
-  Más concretamente, usaremos *Node.JS*, que es un entorno de ejecución para desarrollar con javascript en el lado del servidor.
+Sin embargo, nosotros nos vamos a centrar exclusivamente en el microservicio que implementa la gestión de la base de datos únicamente de clientes.  
+Esta clase posee métodos para llevar a cabo todas las funcionalidades comentadas anteriormente, tales como añadir un nuevo cliente, modificar uno ya creado, o eliminarlo.  
+Además de eso, también posee métodos para cargar una base de datos sobre la que trabajar y para guardar los cambios hechos en la misma.
+
+## Herramientas utilizadas
+
+Las herramientas utilizadas para llevar a cabo este proyecto serán básicamente el lenguaje **Javascript**, más concretamente el entorno *nodeJS*, junto con las siguientes herramientas:
 
   - Framework de aplicaciones web: **ExpressJS**.  
-  Es el framework más usado sobre *nodejs* para trabajar con el protocolo http y para tener un sistema de rutas que nos permitirá implementar nuestra *API RESTful*.
 
   - Base de datos: **MongoDB**.
-  Se usará una base de datos para almacenar toda la información de los clientes de forma permanente. En este caso, he decidido usar MongoDB, que es una base de datos NoSQL que nos permitirá llevar a cabo todas las tareas relacionadas con dicha base de datos.
 
   - Sistema de logs: **Morgan**.  
-  Es importante mantener un registro de logs que vayan indicando qué está ocurriendo en cada momento en nuestro sistema. Si hay algún fallo, esto permite saber por ejemplo qué es lo que ha pasado, y dónde ha fallado exactamente.  
-  En este caso, he decidido utilizar la biblioteca *Morgan*.
 
   - Test: **Jest**.  
-  Es necesario comprobar el correcto funcionamiento de nuestros programas antes de poder desplegarlos, para así tener la certeza de que aquello que desplegamos hace correctamente la función que le ha sido encomendada.  
-  Para ello, vamos a utilizar la biblioteca *Jest*, que nos permite justamente realizar test que todo lo que implementemos deberá ser capaz de pasar, antes de poder ser desplegado.
 
-  - **Travis-CI** para la integración continua.
+  - **Travis-CI** para la integración continua, junto con **Shippable**.
 
-## Documentación
-
-*Coming soon.*
-
-## Instalación
-
-*Coming soon.*
+  Para entrar más en detalle, se puede consultar [este enlace de la documentación](https://github.com/i4vk/GymManager/blob/master/doc/herramientas.md) donde se explica por qué se han elegido exactamente algunas de estas herramientas.
