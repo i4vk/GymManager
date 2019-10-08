@@ -46,6 +46,10 @@ Sin embargo, nosotros nos vamos a centrar exclusivamente en el microservicio que
 Esta clase posee métodos para llevar a cabo todas las funcionalidades comentadas anteriormente, tales como añadir un nuevo cliente, modificar uno ya creado, o eliminarlo.  
 Además de eso, también posee métodos para cargar una base de datos sobre la que trabajar y para guardar los cambios hechos en la misma.
 
+Los test implementados sobre dicha clase implementan una comprobación para cada uno de los métodos de la clase, y comprueban si realmente producen el resultado esperado con una serie de pruebas.
+
+Se puede encontrar la documentación específica de la clase en [este enlace](https://github.com/i4vk/GymManager/tree/master/doc/GymManager.html).
+
 ## Herramientas utilizadas
 
 Las herramientas utilizadas para llevar a cabo este proyecto serán básicamente el lenguaje **Javascript**, más concretamente el entorno *nodeJS*, junto con las siguientes herramientas:
