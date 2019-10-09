@@ -48,7 +48,7 @@ Además de eso, también posee métodos para cargar una base de datos sobre la q
 
 Los test implementados sobre dicha clase implementan una comprobación para cada uno de los métodos de la clase, y comprueban si realmente producen el resultado esperado con una serie de pruebas.
 
-Se puede encontrar la documentación específica de la clase en [este enlace](https://github.com/i4vk/GymManager/tree/master/doc/GymManager.md).
+Se puede encontrar la documentación específica de la clase en [este enlace](https://i4vk.github.io/GymManager/GymManager.html).
 
 ## Herramientas utilizadas
 
@@ -64,4 +64,4 @@ Las herramientas utilizadas para llevar a cabo este proyecto serán básicamente
 
   - **Travis-CI** para la integración continua, junto con **Shippable**.
 
-  Para entrar más en detalle, se puede consultar [este enlace de la documentación](https://github.com/i4vk/GymManager/blob/master/doc/herramientas.md) donde se explica por qué se han elegido exactamente algunas de estas herramientas.
+  Para entrar más en detalle, se puede consultar [este enlace de la documentación](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md) donde se explica por qué se han elegido exactamente algunas de estas herramientas.
