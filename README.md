@@ -65,3 +65,6 @@ Las herramientas utilizadas para llevar a cabo este proyecto serán básicamente
   - **Travis-CI** para la integración continua, junto con **Shippable**.
 
   Para entrar más en detalle, se puede consultar [este enlace de la documentación](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md) donde se explica por qué se han elegido exactamente algunas de estas herramientas.
+
+  Además, se puede puede encontrar la documentación de la herramienta de construcción en el [enlace](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md).  
+  La documentación de CI está disponible en este [enlace](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md).
