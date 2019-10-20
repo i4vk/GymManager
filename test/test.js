@@ -73,8 +73,12 @@ test('Busca por nombre correctamente', () => {
   id_cliente = clientes.searchByName("iván", "garzón segura");
   expect(id_cliente).toBe("1");
 
-  id_cliente_falso = clientes.searchByName("antoñito", "garzón segura");
-  expect(id_cliente_falso).toBeFalsy();
+  try {
+    id_cliente_falso = clientes.searchByName("antoñito", "garzón segura");
+  }catch(error) {
+    expect(error.message).toEqual('Cliente no encontrado');
+    expect(error.status).toBe(404);
+  }
 
   expect(clientes.db["clientes"][id_cliente]).toEqual(un_cliente);
 });
@@ -86,8 +90,12 @@ test('Busca por DNI correctamente', () => {
   id_cliente = clientes.searchByDNI("1234567S");
   expect(id_cliente).toBe("1");
 
-  id_cliente_falso = clientes.searchByDNI("987643245F");
-  expect(id_cliente_falso).toBeFalsy();
+  try {
+    id_cliente_falso = clientes.searchByDNI("987643245F");
+  }catch(error) {
+    expect(error.message).toEqual('Cliente no encontrado');
+    expect(error.status).toBe(404);
+  }
 
   expect(clientes.db["clientes"][id_cliente]).toEqual(un_cliente);
 });
