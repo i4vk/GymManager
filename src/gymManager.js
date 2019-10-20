@@ -35,7 +35,6 @@ class GymManager {
       var json_db=fs.readFileSync(pathfile, 'utf8');
       this.db=JSON.parse(json_db);
     } catch (error){
-      //var json_db = {clientes:{"1":{nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es",id: 1}}};
       var json_db = {clientes:{}};
       fs.writeFile(pathfile, JSON.stringify(json_db, null, 2), function(err) {
         if (err) {
@@ -100,7 +99,7 @@ class GymManager {
    * Elimina un cliente dado por su ID.
    *
    * @param  {int} id Identificador (ID) del cliente dentro de la base de datos.
-   * @return {boolean}  True si se ha podido eliminar, False en caso contrario.
+   * @return {boolean}  True si se ha podido eliminar.
    */
   eliminarCliente(id) {
     if (id in this.db["clientes"]) {
@@ -108,7 +107,9 @@ class GymManager {
       this.num_clientes -= 1;
       return true;
     }else {
-      return false;
+      var error = new Error("No es posible eliminar el cliente");
+      error.status = 400;
+      throw error;
     }
   }
 
@@ -131,7 +132,9 @@ class GymManager {
     if (id in this.db["clientes"]) {
       return this.db["clientes"][id];
     }else {
-      return null;
+      var error = new Error("No existe cliente");
+      error.status = 404;
+      throw error;
     }
   }
 
@@ -141,7 +144,7 @@ class GymManager {
    * @param  {int} id          Identificador (ID) del cliente dentro de la base de datos.
    * @param  {string} campo       Atributo que será modificado.
    * @param  {string} nuevo_valor Nuevo valor que contendrá el atributo dado.
-   * @return {boolean}             True si se ha podido modificar correctamente, False en caso contrario.
+   * @return {boolean}             True si se ha podido modificar correctamente.
    */
   update(id, campo, nuevo_valor) {
     if (id in this.db["clientes"]) {
@@ -149,7 +152,9 @@ class GymManager {
       this.save(this.dbpath)
       return true;
     }else {
-      return false;
+      var error = new Error("No es posible actualizar el cliente");
+      error.status = 400;
+      throw error;
     }
   }
 
@@ -158,7 +163,7 @@ class GymManager {
    *
    * @param  {string} nombre    Nombre del cliente.
    * @param  {string} apellidos Apellidos del cliente.
-   * @return {int}           ID del cliente buscado. Si no se ha encontrado dicho cliente, devuelve False.
+   * @return {int}           ID del cliente buscado.
    */
   searchByName(nombre, apellidos) {
     var id;
@@ -169,14 +174,16 @@ class GymManager {
       }
     }
 
-    return false;
+    var error = new Error("Cliente no encontrado");
+    error.status = 404;
+    throw error;
   }
 
   /**
    * searchByDNI - description
    *
    * @param  {string} dni DNI del cliente buscado
-   * @return {int}     ID del cliente buscado. Si no se ha encontrado dicho cliente, devuelve False.
+   * @return {int}     ID del cliente buscado.
    */
   searchByDNI(dni) {
     var id;
@@ -186,7 +193,9 @@ class GymManager {
       }
     }
 
-    return false;
+    var error = new Error("Cliente no encontrado");
+    error.status = 404;
+    throw error;
   }
 }
 
