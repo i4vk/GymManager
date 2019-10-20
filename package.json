@@ -4,7 +4,7 @@
   "description": "Sistema para manejar clientes de un gimnasio.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node ./src/bin/www",
     "test": "jest",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
@@ -13,7 +13,6 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
