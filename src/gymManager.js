@@ -22,6 +22,7 @@ class GymManager {
       this.db=json_db;
     }
 
+    this.dbpath = pathfile;
     this.num_clientes = Object.keys(this.db["clientes"]).length;
   }
 
@@ -92,6 +93,7 @@ class GymManager {
 
     this.db["clientes"][id_cliente] = cliente;
     this.num_clientes += 1;
+    this.save(this.dbpath)
   }
 
   /**
@@ -144,6 +146,7 @@ class GymManager {
   update(id, campo, nuevo_valor) {
     if (id in this.db["clientes"]) {
       this.db["clientes"][id][campo] = nuevo_valor;
+      this.save(this.dbpath)
       return true;
     }else {
       return false;
@@ -173,7 +176,7 @@ class GymManager {
    * searchByDNI - description
    *
    * @param  {string} dni DNI del cliente buscado
-   * @return {int}     ID del cliente buscado. Si no se ha encontrado dicho cliente, devuelve False.  
+   * @return {int}     ID del cliente buscado. Si no se ha encontrado dicho cliente, devuelve False.
    */
   searchByDNI(dni) {
     var id;
