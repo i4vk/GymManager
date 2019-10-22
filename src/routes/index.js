@@ -19,21 +19,18 @@ app.get('/clientes/name/', function(req, res) {
   try {
     var id_cliente = clientes.searchByName(req.body['nombre'], req.body['apellidos']);
     var cliente = clientes.getCliente(id_cliente);
-
     res.status(200).json(cliente);
   } catch(error) {
-    console.log(error)
-    next(error);
-    return;
+    throw error;
   }
 });
 
-app.get('/clientes/:id', function(req, res) {
-  cliente = clientes.getCliente(req.params.id);
-  if (cliente != null) {
-    res.status(200).send(JSON.stringify(cliente, null, 2));
-  }else {
-    res.sendStatus(404);
+app.get('/clientes/id/:id', function(req, res) {
+  try {
+    cliente = clientes.getCliente(req.params.id);
+    res.status(200).json(cliente);
+  }catch(error) {
+    throw error;
   }
 });
 
