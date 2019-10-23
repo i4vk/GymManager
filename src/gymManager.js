@@ -79,6 +79,7 @@ class GymManager {
    */
   insert(cliente) {
     var list_keys = Object.keys(this.db["clientes"]);
+    var campos_esperados = ['nombre', 'dni', 'email', 'apellidos'];
 
     var id_cliente = this.num_clientes;
     var found;
@@ -90,9 +91,28 @@ class GymManager {
       });
     } while (found != undefined);
 
+    var keys_nuevo_cliente = Object.keys(cliente);
+    var campo;
+
+    for(campo of campos_esperados) {
+      if (keys_nuevo_cliente.indexOf(campo) == -1) {
+        var error = new Error('Faltan datos de cliente');
+        error.status = 400;
+        throw error;
+      }
+    }
+
+    for(campo of keys_nuevo_cliente) {
+      if (campos_esperados.indexOf(campo) == -1) {
+        var error = new Error('Error en los datos del cliente');
+        error.status = 400;
+        throw error;
+      }
+    }
+    
     this.db["clientes"][id_cliente] = cliente;
     this.num_clientes += 1;
-    this.save(this.dbpath)
+    this.save(this.dbpath);
   }
 
   /**
