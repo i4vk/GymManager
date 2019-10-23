@@ -6,13 +6,13 @@ app.set('json spaces', 2)
 
 var clientes = new gymManager('./src/data/database.json');
 
-app.get('/', function(req, res) {
-  res.status(200).json({status:"OK"})
-});
-
-app.get('/clientes', function(req, res) {
-  var lista_clientes = clientes.listarClientes();
-  res.status(200).json(lista_clientes);
+app.get('/clientes/id/:id', function(req, res) {
+  try {
+    cliente = clientes.getCliente(req.params.id);
+    res.status(200).json(cliente);
+  }catch(error) {
+    throw error;
+  }
 });
 
 app.get('/clientes/name/', function(req, res) {
@@ -25,13 +25,24 @@ app.get('/clientes/name/', function(req, res) {
   }
 });
 
-app.get('/clientes/id/:id', function(req, res) {
+app.post('/clientes', function(req, res) {
+  nuevo_cliente = req.body;
   try {
-    cliente = clientes.getCliente(req.params.id);
-    res.status(200).json(cliente);
+    clientes.insert(nuevo_cliente);
+    res.sendStatus(201);
   }catch(error) {
+    console.log(error);
     throw error;
   }
+});
+
+app.get('/clientes', function(req, res) {
+  var lista_clientes = clientes.listarClientes();
+  res.status(200).json(lista_clientes);
+});
+
+app.get('/', function(req, res) {
+  res.status(200).json({status:"OK"})
 });
 
 module.exports = app;
