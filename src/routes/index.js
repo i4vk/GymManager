@@ -31,7 +31,6 @@ app.post('/clientes', function(req, res) {
     clientes.insert(nuevo_cliente);
     res.sendStatus(201);
   }catch(error) {
-    console.log(error);
     throw error;
   }
 });
@@ -39,6 +38,21 @@ app.post('/clientes', function(req, res) {
 app.get('/clientes', function(req, res) {
   var lista_clientes = clientes.listarClientes();
   res.status(200).json(lista_clientes);
+});
+
+app.put('/clientes/id/:id', function(req, res) {
+  datos = req.body;
+  campos = Object.keys(datos);
+
+  for (var i = 0; i < campos.length; i++) {
+    try {
+      clientes.update(req.params.id, campos[i], datos[campos[i]]);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  res.sendStatus(201);
 });
 
 app.get('/', function(req, res) {
