@@ -109,7 +109,7 @@ class GymManager {
         throw error;
       }
     }
-    
+
     this.db["clientes"][id_cliente] = cliente;
     this.num_clientes += 1;
     this.save(this.dbpath);
@@ -167,7 +167,7 @@ class GymManager {
    * @return {boolean}             True si se ha podido modificar correctamente.
    */
   update(id, campo, nuevo_valor) {
-    if (id in this.db["clientes"]) {
+    if ((id in this.db["clientes"]) && (Object.keys(this.db["clientes"][id]).indexOf(campo) != -1)) {
       this.db["clientes"][id][campo] = nuevo_valor;
       this.save(this.dbpath)
       return true;
