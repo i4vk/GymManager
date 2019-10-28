@@ -16,7 +16,7 @@ app.get('/clientes/id/:id', function(req, res) {
 });
 
 app.get('/clientes/name/', function(req, res) {
-  try {a
+  try {
     var id_cliente = clientes.searchByName(req.body.nombre, req.body.apellidos);
     var cliente = clientes.getCliente(id_cliente);
     res.status(200).json(cliente);

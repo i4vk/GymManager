@@ -206,7 +206,7 @@ class GymManager {
    * @param  {string} dni DNI del cliente buscado
    * @return {int}     ID del cliente buscado.
    */
-  searchByDNI(dni) {s
+  searchByDNI(dni) {
     var id;
     for (id of Object.keys(this.db["clientes"])) {
       if (this.db["clientes"][id]["dni"].toUpperCase() == dni.toUpperCase()) {
