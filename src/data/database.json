@@ -9,8 +9,14 @@
     "2": {
       "nombre": "Antonio",
       "apellidos": "Papaya Telescopio",
-      "dni": "2222111Q",
-      "email": "npaçya@gmail.com"
+      "dni": "9999999V",
+      "email": "modificado@hello.com"
+    },
+    "3": {
+      "nombre": "Rodrigo",
+      "apellidos": "Rodriguez",
+      "dni": "987123S",
+      "email": "telescopio@correo.ugr.es"
     }
   }
 }
