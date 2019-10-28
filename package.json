@@ -4,7 +4,10 @@
   "description": "Sistema para manejar clientes de un gimnasio.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/bin/www",
+    "start": "pm2 start ./src/bin/www",
+    "stop": "pm2 stop ./src/bin/www",
+    "delete": "pm2 delete ./src/bin/www",
+    "restart": "pm2 restart ./src/bin/www",
     "test": "jest",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
@@ -22,6 +25,7 @@
     "jest": "^24.9.0",
     "jsdoc": "^3.6.3",
     "nodemon": "^1.14.12",
+    "pm2": "^4.1.2",
     "supertest": "^4.0.2"
   }
 }
