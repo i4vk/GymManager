@@ -21,6 +21,7 @@ app.get('/clientes/name/', function(req, res) {
     var cliente = clientes.getCliente(id_cliente);
     res.status(200).json(cliente);
   } catch(error) {
+    console.log(error);
     throw error;
   }
 });
