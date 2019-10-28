@@ -37,11 +37,13 @@ describe('GET /clientes/name/', function() {
       expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
     })
   });
+})
 
-  test('No encuentra cliente falso', async () => {
-    var nombre_cliente = {"nombre": "Cliente", "apellidos": "Falso"};
-    return request.get('/clientes/name/').send(nombre_cliente).then(response => {
-      expect(response.statusCode).toBe(404);
+describe('GET /clientes/dni/', function() {
+  test('Obtiene cliente por dni', async () => {
+    return request.get('/clientes/dni/1234567S').then(response => {
+      expect(response.statusCode).toBe(200);
+      expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
     })
   });
 })
