@@ -1,0 +1,16 @@
+{
+  "clientes": {
+    "1": {
+      "nombre": "Iván",
+      "apellidos": "Garzón Segura",
+      "dni": "1234567S",
+      "email": "ivangarzon98@correo.ugr.es"
+    },
+    "2": {
+      "nombre": "Antonio",
+      "apellidos": "Papaya Telescopio",
+      "dni": "1234567S",
+      "email": "papaya@correo.ugr.es"
+    }
+  }
+}
