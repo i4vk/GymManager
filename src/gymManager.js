@@ -112,7 +112,8 @@ class GymManager {
 
     this.db["clientes"][id_cliente] = cliente;
     this.num_clientes += 1;
-    this.save(this.dbpath);
+    //this.save(this.dbpath);
+    return id_cliente;
   }
 
   /**
@@ -125,7 +126,7 @@ class GymManager {
     if (id in this.db["clientes"]) {
       delete this.db["clientes"][id];
       this.num_clientes -= 1;
-      this.save(this.dbpath);
+      //this.save(this.dbpath);
       return true;
     }else {
       var error = new Error("No es posible eliminar el cliente");
@@ -170,7 +171,7 @@ class GymManager {
   update(id, campo, nuevo_valor) {
     if ((id in this.db["clientes"]) && (Object.keys(this.db["clientes"][id]).indexOf(campo) != -1)) {
       this.db["clientes"][id][campo] = nuevo_valor;
-      this.save(this.dbpath)
+      //this.save(this.dbpath)
       return true;
     }else {
       var error = new Error("No es posible actualizar el cliente");

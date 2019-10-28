@@ -28,8 +28,8 @@ app.get('/clientes/name/', function(req, res) {
 app.post('/clientes', function(req, res) {
   nuevo_cliente = req.body;
   try {
-    clientes.insert(nuevo_cliente);
-    res.sendStatus(201);
+    id_insertado = clientes.insert(nuevo_cliente);
+    res.status(201).json({id:id_insertado});
   }catch(error) {
     throw error;
   }
@@ -52,7 +52,7 @@ app.put('/clientes/id/:id', function(req, res) {
     }
   }
 
-  res.sendStatus(201);
+  res.status(201).json(clientes.getCliente(req.params.id));
 });
 
 app.delete('/clientes/id/:id', function(req, res) {
