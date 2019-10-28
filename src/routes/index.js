@@ -17,7 +17,7 @@ app.get('/clientes/id/:id', function(req, res) {
 
 app.get('/clientes/name/', function(req, res) {
   try {
-    var id_cliente = clientes.searchByName(req.body['nombre'], req.body['apellidos']);
+    var id_cliente = clientes.searchByName(req.body.nombre, req.body.apellidos);
     var cliente = clientes.getCliente(id_cliente);
     res.status(200).json(cliente);
   } catch(error) {
@@ -53,6 +53,15 @@ app.put('/clientes/id/:id', function(req, res) {
   }
 
   res.sendStatus(201);
+});
+
+app.delete('/clientes/id/:id', function(req, res) {
+  try {
+    clientes.eliminarCliente(req.params.id);
+    res.sendStatus(200);
+  } catch (error) {
+    throw error;
+  }
 });
 
 app.get('/', function(req, res) {

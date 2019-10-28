@@ -125,6 +125,7 @@ class GymManager {
     if (id in this.db["clientes"]) {
       delete this.db["clientes"][id];
       this.num_clientes -= 1;
+      this.save(this.dbpath);
       return true;
     }else {
       var error = new Error("No es posible eliminar el cliente");
