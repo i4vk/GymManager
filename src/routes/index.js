@@ -25,6 +25,16 @@ app.get('/clientes/name/', function(req, res) {
   }
 });
 
+app.get('/clientes/dni/:dni', function(req, res) {
+  try {
+    var id_cliente = clientes.searchByDNI(req.params.dni);
+    var cliente = clientes.getCliente(id_cliente);
+    res.status(200).json(cliente);
+  } catch(error) {
+    throw error;
+  }
+});
+
 app.post('/clientes', function(req, res) {
   nuevo_cliente = req.body;
   try {
