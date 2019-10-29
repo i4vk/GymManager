@@ -3,7 +3,6 @@ const pm2 = require('pm2');
 var exec = require('child_process').exec;
 var jest = require('gulp-jest').default;
 var apidoc = require('gulp-apidoc');
-var jsdoc = require('gulp-jsdoc3');
 
 
 gulp.task('install', function (cb) {
@@ -66,4 +65,6 @@ gulp.task('doc', function(done){
     dest: "./docs/rest",
     config: "./"
   }, done);
-})
+});
+
+gulp.task('default', gulp.series('install', 'test'));
