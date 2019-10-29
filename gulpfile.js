@@ -75,4 +75,4 @@ gulp.task('doc', function(done){
   }, done);
 });
 
-gulp.task('default', gulp.series('install', 'test', 'coveralls'));
+gulp.task('default', gulp.series('install', 'test'));
