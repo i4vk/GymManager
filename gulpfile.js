@@ -54,6 +54,14 @@ gulp.task('test', () => (
     gulp.src('test', {read: false}).pipe(jest({reporter:'default'}))
 ));
 
+gulp.task('coveralls', function(cb) {
+  exec('npm run coveralls', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+})
+
 gulp.task('doc', function(done){
   exec('jsdoc ./src/gymManager.js -d ./docs/gymManager', function(err, stdout, stderr) {
     console.log(stdout);
@@ -67,4 +75,4 @@ gulp.task('doc', function(done){
   }, done);
 });
 
-gulp.task('default', gulp.series('install', 'test'));
+gulp.task('default', gulp.series('install', 'test', 'coveralls'));
