@@ -96,7 +96,7 @@ class GymManager {
 
     for(campo of campos_esperados) {
       if (keys_nuevo_cliente.indexOf(campo) == -1) {
-        var error = new Error('Faltan datos de cliente');
+        var error = new Error('MissingClientData');
         error.status = 400;
         throw error;
       }
@@ -104,7 +104,7 @@ class GymManager {
 
     for(campo of keys_nuevo_cliente) {
       if (campos_esperados.indexOf(campo) == -1) {
-        var error = new Error('Error en los datos del cliente');
+        var error = new Error('ClientDataError');
         error.status = 400;
         throw error;
       }
@@ -129,7 +129,7 @@ class GymManager {
       //this.save(this.dbpath);
       return true;
     }else {
-      var error = new Error("No es posible eliminar el cliente");
+      var error = new Error("CannotDeleteClient");
       error.status = 400;
       throw error;
     }
@@ -154,7 +154,7 @@ class GymManager {
     if (id in this.db["clientes"]) {
       return this.db["clientes"][id];
     }else {
-      var error = new Error("No existe cliente");
+      var error = new Error("ClientNotFound");
       error.status = 404;
       throw error;
     }
@@ -174,7 +174,7 @@ class GymManager {
       //this.save(this.dbpath)
       return true;
     }else {
-      var error = new Error("No es posible actualizar el cliente");
+      var error = new Error("CannotUpdateClient");
       error.status = 400;
       throw error;
     }
@@ -196,7 +196,7 @@ class GymManager {
       }
     }
 
-    var error = new Error("Cliente no encontrado");
+    var error = new Error("ClientNotFound");
     error.status = 404;
     throw error;
   }
@@ -215,7 +215,7 @@ class GymManager {
       }
     }
 
-    var error = new Error("Cliente no encontrado");
+    var error = new Error("ClientNotFound");
     error.status = 404;
     throw error;
   }
