@@ -76,7 +76,7 @@ test('Busca por nombre correctamente', () => {
   try {
     id_cliente_falso = clientes.searchByName("antoñito", "garzón segura");
   }catch(error) {
-    expect(error.message).toEqual('Cliente no encontrado');
+    expect(error.message).toEqual('ClientNotFound');
     expect(error.status).toBe(404);
   }
 
@@ -93,7 +93,7 @@ test('Busca por DNI correctamente', () => {
   try {
     id_cliente_falso = clientes.searchByDNI("987643245F");
   }catch(error) {
-    expect(error.message).toEqual('Cliente no encontrado');
+    expect(error.message).toEqual('ClientNotFound');
     expect(error.status).toBe(404);
   }
 
