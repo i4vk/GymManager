@@ -305,7 +305,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "endpoint: http://localhost/clientes\n\nbody:\n{\n  \"nombre\": \"Rodrigo\",\n  \"apellidos\": \"Rodríguez Fernández\",\n  \"dni\": \"12345678S\",\n  \"email\": \"foo@correo.es\"\n}",
+        "content": "endpoint: http://localhost/clientes\n\nbody:\n{\n  \"nombre\": \"Rodrigo\",\n  \"apellidos\": \"Rodríguez Fernández\",\n  \"dni\": \"12345678S\",\n  \"email\": \"foo@gmail.set\"\n}",
         "type": "json"
       }
     ],
@@ -463,7 +463,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"nombre\": \"Rodrigo\",\n  \"apellidos\": \"Rodríguez Fernández\",\n  \"dni\": \"12345678S\",\n  \"email\": \"foo@correo.es\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"nombre\": \"Rodrigo\",\n  \"apellidos\": \"Rodríguez Fernández\",\n  \"dni\": \"12345678S\",\n  \"email\": \"foo@gmail.es\"\n}",
           "type": "json"
         }
       ]

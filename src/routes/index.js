@@ -42,7 +42,7 @@ var clientes = new gymManager('./src/data/database.json');
 *       "nombre": "Rodrigo",
 *       "apellidos": "Rodríguez Fernández",
 *       "dni": "12345678S",
-*       "email": "foo@correo.es"
+*       "email": "foo@gmail.es"
 *     }
 */
 
@@ -133,7 +133,7 @@ app.get('/clientes/dni/:dni', function(req, res) {
 *       "nombre": "Rodrigo",
 *       "apellidos": "Rodríguez Fernández",
 *       "dni": "12345678S",
-*       "email": "foo@correo.es"
+*       "email": "foo@gmail.set"
 *     }
 * @apiSuccess (Success 201) {int} id ID del cliente
 * @apiSuccessExample Success-Response:
