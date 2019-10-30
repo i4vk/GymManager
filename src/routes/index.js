@@ -26,7 +26,7 @@ var clientes = new gymManager('./src/data/database.json');
 *       "nombre": "Rodrigo",
 *       "apellidos": "Rodríguez Fernández",
 *       "dni": "12345678S",
-*       "email": "foo@correo.es"
+*       "email": "foo@gmail.es"
 *     }
 */
 
