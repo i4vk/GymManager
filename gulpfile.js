@@ -32,7 +32,8 @@ gulp.task('start', function(cb) {
       }
       console.log("Iniciando servidor GymManager");
     });
-  });
+  })
+  pm2.disconnect();
 });
 
 // Detiene la instancia de pm2 del servidor en ejecución
