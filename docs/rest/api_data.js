@@ -471,8 +471,8 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/",
-    "title": "GET /",
+    "url": "/status",
+    "title": "GET /status",
     "description": "<p>Comprueba estado del servidor</p>",
     "group": "Status",
     "name": "GetStatus",

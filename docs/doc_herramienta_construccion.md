@@ -1,30 +1,19 @@
-~~~python3
-{
-  "name": "gymmanager",     #Nombre del proyecto
-  "version": "1.0.0",       #Versión del proyecto
-  "description": "Sistema para manejar clientes de un gimnasio.",     #Descripción
-  "main": "index.js",       #Fichero principal
-  "scripts": {
-    "start": "nodemon index.js",  #Inicializa estructura del proyecto
-    "test": "jest",               #Ejecuta los test
-    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"  
-            #Comprueba la cobertura de los test sobre el código
-  },
-  "author": "Iván Garzón Segura",     #Autor del proyecto
-  "license": "GPL-3.0", "Licencia del proyecto"
-  "dependencies": {     #Módulos necesarios para ejecutar el proyecto
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
-  },
-  "devDependencies": {      #Módulos necesarios para el desarrollo del proyecto
-    "coveralls": "^3.0.6",
-    "jest": "^24.9.0",
-    "jsdoc": "^3.6.3",
-    "nodemon": "^1.14.12"
-  }
-}
-~~~
+Como herramienta de construcción he utilizado **Gulp** para automatizar todas las tareas posibles del proyecto. Estas tareas estarán implementadas en el archivo [gulpfile.js](https://github.com/i4vk/GymManager/blob/master/gulpfile.js).
+
+En este archivo podemos ver las tareas relacionadas con la instalación y manejo del servidor, además de añadir también algunas tareas adicionales como por ejemplo una para compilar toda la documentación del proyecto.
+
+Las tareas disponibles son las siguientes:
+
+- **gulp install**: Instala todas las dependencias del proyecto, en función de aquellas dependencias definidas dentro del package.json.
+
+- **gulp start**: Levanta el servidor para poder comenzar a hacerle peticiones REST.
+
+- **gulp stop**: Detiene el servidor.
+
+- **gulp restart**: Reinicia el servidor.
+
+- **gulp test**: Ejecuta los test del proyecto. Es necesario haber ejecutado *gulp install* previamente para poder ejecutar los test correctamente.
+
+- **gulp coveralls**: Ejecuta la comprobación de la cobertura de los test sobre el código. No se puede utilizar en local, ya que es necesario que este proyecto esté en un repositorio seguido por [Coveralls](https://coveralls.io/). Por lo tanto, su utilidad vendrá en el momento de ejecutar los test en una herramienta de Integración Continua, en este caso Travis.
+
+- **gulp doc**: Compila toda la documentación del proyecto y la almacena en el directorio docs/ haciendo una distinción entre cada uno de los archivos documentados. Por ahora, la documentación consistirá en una documentación de la clase principal, contenida en *docs/gymManager*, y posteriormente la documentación de la api REST contenida en *docs/rest*.

@@ -1,3 +1,16 @@
+Para la integración continua he utilizado tanto Travis como Shippable. En ambos, el funcionamiento es muy parecido, aunque sus ficheros tengan algunas diferencias en la sintaxis.
+
+A *grosso modo*, lo que hacemos en estas herramientas de integración continua consiste en declarar el lenguaje que usaremos, en este caso *nodejs*. Posteriormente, indicamos las versiones de este lenguaje que testearemos.  
+Vamos a testear dos versiones de *nodejs*, la más actual y la estable. La más actual es la *12.10.0*, y la estable es la *10.16.3*.
+
+Posteriormente, indicamos las ramas sobre las que se ejecutarán estas herramientas. En este caso, únicamente lo vamos a utilizar sobre la rama master, que será la única donde se están implementando los cambios en este momento.
+
+Antes de poder ejecutar nada, dado que la herramienta de construcción no viene instalada por defecto, deberemos indicar que se debe instalar *gulp* antes de comenzar a ejecutar las tareas de construcción y test.
+
+Finalmente, se ejecutan las tareas que deberemos llevar a cabo para poder ejecutar los test. En este caso, primero debemos instalar todas las dependencias, y posteriormente ejecutaremos los test.
+
+Adicionalmente, en travis se ha añadido un script para comprobar la cobertura de los test sobre el código, de manera que en el *README.md* del proyecto podamos ver un *badge* donde veremos el porcentaje de esta cobertura.
+
 # Travis
 
 Lenguaje utilizado para la integración continua.
@@ -19,10 +32,10 @@ branches:
     - master
 ~~~
 
-Instalación del sistema.
+Antes de poder ejecutar las tareas de la herramienta de construcción, es necesario instalar previamente *gulp* ejecutando la tarea siguiente:
 ~~~
-install:
-  - npm install
+before_script:
+  - npm install -g gulp
 ~~~
 
 Scripts que se ejecutarán a la hora de realizar la integración continua. En este caso, primero se testea y posteriormente se comprueba la cobertura de los test sobre el código.
@@ -31,6 +44,8 @@ script:
   - npm test
   - npm run coveralls
 ~~~
+
+La cobertura del código se podrá observar en un *badge* al principio del archivo *README.md*.
 
 # Shippable
 
@@ -46,10 +61,22 @@ node_js:
   - 10.16.3
 ~~~
 
-Pasos a realizar para la integración continua, en este caso primero instalar (contruir) y después ejecutar los test.
+Ramas del repositorio donde se va a realizar la integración continua. En este caso, únicamente master.
 ~~~
-build:
-  ci:
-    - npm install
-    - npm test
+branches:
+  only:
+    - master
+~~~
+
+Antes de poder ejecutar las tareas de construcción, es necesario instalar *gulp* globalmente ejecutando lo siguiente:
+~~~
+before_install:
+  - npm install -g gulp
+~~~
+
+Posteriormente, una vez instalado gulp, se ejecutan las tareas de construcción y de test.
+~~~
+script:
+  - gulp install
+  - gulp test
 ~~~

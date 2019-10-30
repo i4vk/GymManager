@@ -10,19 +10,35 @@ De dichos clientes se almacenarán distintos datos que podrían ser útiles, com
 
 ## Instalación
 
+buildtool: gulpfile.js
+
 Para instalarlo, primero de todo es necesario clonar el repositorio:
 
     $ git clone https://github.com/i4vk/GymManager.git
 
+Antes de nada, necesitamos tener instalado gulp. Si no es así, necesitamos ejecutar:
+
+    $ npm -g install gulp
+
 Posteriormente, instalamos todas las dependencias:
 
-    $ npm install
+    $ gulp install
+
+## Uso
+
+Para iniciar el servidor, ejecutaremos:
+
+  $ gulp start&
+
+Esto creará una instancia corriendo del servidor. Si queremos detenerla, ejecutaremos lo siguiente:
+
+  $ gulp stop
 
 ## Test
 
 Finalmente, si queremos ejecutar los test, escribiremos el siguiente comando:
 
-    $ npm test
+    $ gulp test
 
 ## Funcionalidades
 
@@ -38,33 +54,14 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
   - Consultar la lista completa de clientes.
   - Consultar los datos de un cliente específico.
 
-## Descripción de la clase
+## Documentación
 
-El servicio completo del que este microservicio formaría parte consiste en la gestión completa de un gimnasio. Es decir, la gestión de los empleados, los clientes, las tarifas, etc.
+- Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)
 
-Sin embargo, nosotros nos vamos a centrar exclusivamente en el microservicio que implementa la gestión de la base de datos únicamente de clientes.  
-Esta clase posee métodos para llevar a cabo todas las funcionalidades comentadas anteriormente, tales como añadir un nuevo cliente, modificar uno ya creado, o eliminarlo.  
-Además de eso, también posee métodos para cargar una base de datos sobre la que trabajar y para guardar los cambios hechos en la misma.
+- API REST: [Endpoints](https://i4vk.github.io/GymManager/rest/index.html)
 
-Los test implementados sobre dicha clase implementan una comprobación para cada uno de los métodos de la clase, y comprueban si realmente producen el resultado esperado con una serie de pruebas.
+- Herramientas utilizadas: [Herramientas](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md)
 
-Se puede encontrar la documentación específica de la clase en [este enlace](https://i4vk.github.io/GymManager/gymManager/GymManager.html).
+- Herramienta de construcción: [Gulpfile](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md)
 
-## Herramientas utilizadas
-
-Las herramientas utilizadas para llevar a cabo este proyecto serán básicamente el lenguaje **Javascript**, más concretamente el entorno *nodeJS*, junto con las siguientes herramientas:
-
-  - Framework de aplicaciones web: **ExpressJS**.  
-
-  - Base de datos: **MongoDB**.
-
-  - Sistema de logs: **Morgan**.  
-
-  - Test: **Jest**.  
-
-  - **Travis-CI** para la integración continua, junto con **Shippable**.
-
-  Para entrar más en detalle, se puede consultar [este enlace de la documentación](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md) donde se explica por qué se han elegido exactamente algunas de estas herramientas.
-
-  Además, se puede puede encontrar la documentación de la herramienta de construcción en el [enlace](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md).  
-  La documentación de CI está disponible en este [enlace](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md).
+- Integración continua: [CI](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md)
