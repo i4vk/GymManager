@@ -224,13 +224,13 @@ app.delete('/clientes/id/:id', function(req, res) {
 });
 
 /**
-* @api {get} / GET /
+* @api {get} /status GET /status
 * @apiDescription Comprueba estado del servidor
 * @apiGroup Status
 * @apiName GetStatus
 * @apiSuccess status Estado del servidor
 */
-app.get('/', function(req, res) {
+app.get('/status', function(req, res) {
   res.status(200).json({status:"OK"})
 });
 
