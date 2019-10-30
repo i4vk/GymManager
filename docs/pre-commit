@@ -1,0 +1,17 @@
+#!/bin/sh
+
+SRC_PATTERN="src/gymManager.js"
+if git diff --cached --name-only | grep --quiet "$SRC_PATTERN"
+then
+  gulp doc
+  git add docs/
+  exit 0
+fi
+
+SRC_PATTERN="src/routes/index.js"
+if git diff --cached --name-only | grep --quiet "$SRC_PATTERN"
+then
+  gulp doc
+  git add docs/
+  exit 0
+fi
