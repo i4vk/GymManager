@@ -305,7 +305,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "endpoint: http://localhost/clientes\n\nbody:\n{\n  \"nombre\": \"Rodrigo\",\n  \"apellidos\": \"Rodríguez Fernández\",\n  \"dni\": \"12345678S\",\n  \"email\": \"foo@gmail.set\"\n}",
+        "content": "endpoint: http://localhost/clientes\n\nbody:\n{\n  \"nombre\": \"Rodrigo\",\n  \"apellidos\": \"Rodríguez Fernández\",\n  \"dni\": \"12345678S\",\n  \"email\": \"foo@gmail.com\"\n}",
         "type": "json"
       }
     ],

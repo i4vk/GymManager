@@ -133,7 +133,7 @@ app.get('/clientes/dni/:dni', function(req, res) {
 *       "nombre": "Rodrigo",
 *       "apellidos": "Rodríguez Fernández",
 *       "dni": "12345678S",
-*       "email": "foo@gmail.set"
+*       "email": "foo@gmail.com"
 *     }
 * @apiSuccess (Success 201) {int} id ID del cliente
 * @apiSuccessExample Success-Response:
