@@ -34,6 +34,8 @@ Esto creará una instancia corriendo del servidor. Si queremos detenerla, ejecut
 
     $ gulp stop
 
+Una vez arrancado el servidor, ya podemos empezar a hacer peticiones a la dirección *127.0.0.1:8080/*.
+
 ## Test
 
 Finalmente, si queremos ejecutar los test, escribiremos el siguiente comando:
@@ -56,14 +58,9 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
 
 ## Documentación
 
-- Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)
-
-- API REST: [Endpoints](https://i4vk.github.io/GymManager/rest/index.html)
-
-- Herramientas utilizadas: [Herramientas](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md)
-
-- Herramienta de construcción: [Gulpfile](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md)
-
-- Integración continua: [CI](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md)
-
-- Hooks Git: [Hooks](https://github.com/i4vk/GymManager/blob/master/docs/doc_hooks.md)
+- Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
+- API REST: [Endpoints](https://i4vk.github.io/GymManager/rest/index.html)  
+- Herramientas utilizadas: [Herramientas](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md)  
+- Herramienta de construcción: [Gulpfile](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md)  
+- Integración continua: [CI](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md)  
+- Hooks Git: [Hooks](https://github.com/i4vk/GymManager/blob/master/docs/doc_hooks.md)  
