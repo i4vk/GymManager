@@ -28,11 +28,11 @@ Posteriormente, instalamos todas las dependencias:
 
 Para iniciar el servidor, ejecutaremos:
 
-  $ gulp start&
+    $ gulp start &
 
 Esto creará una instancia corriendo del servidor. Si queremos detenerla, ejecutaremos lo siguiente:
 
-  $ gulp stop
+    $ gulp stop
 
 ## Test
 
