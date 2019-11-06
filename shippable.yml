@@ -6,7 +6,6 @@ branches:
   only:
     - master
 before_install:
-  - npm install -g gulp
+  - npm install
 script:
-  - gulp install
   - gulp test
