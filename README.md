@@ -22,7 +22,9 @@ Antes de nada, necesitamos tener instalado gulp. Si no es así, necesitamos ejec
 
 Posteriormente, instalamos todas las dependencias:
 
-    $ gulp install
+    $ npm install
+
+Dado que gulp necesita algunas dependencias dentro del *gulpfile.js*, no es posible instalar los paquetes usando gulp install. Esta es la razón por la que es necesario hacer *npm install*.
 
 ## Uso
 
@@ -30,7 +32,9 @@ Para iniciar el servidor, ejecutaremos:
 
     $ gulp start &
 
-Esto creará una instancia corriendo del servidor. Si queremos detenerla, ejecutaremos lo siguiente:
+Esto creará una instancia corriendo del servidor. Es necesario poner el símbolo *'&'* al final del comando para que el terminal no se quede bloqueado, y así poder seguir ejecutando órdenes.
+
+Si queremos detenerla, ejecutaremos lo siguiente:
 
     $ gulp stop
 

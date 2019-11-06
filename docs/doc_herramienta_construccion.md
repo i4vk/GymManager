@@ -2,9 +2,9 @@ Como herramienta de construcción he utilizado **Gulp** para automatizar todas l
 
 En este archivo podemos ver las tareas relacionadas con la instalación y manejo del servidor, además de añadir también algunas tareas adicionales como por ejemplo una para compilar toda la documentación del proyecto.
 
-Las tareas disponibles son las siguientes:
+Antes de ejecutar cualquier tarea de *gulp* necesitamos haber instalado todos los paquetes previamente con *npm install*, dado que necesitamos de algunas dependencias para que este funcione correctamente.
 
-- **gulp install**: Instala todas las dependencias del proyecto, en función de aquellas dependencias definidas dentro del package.json.
+Las tareas disponibles son las siguientes:
 
 - **gulp start**: Levanta el servidor para poder comenzar a hacerle peticiones REST.
 

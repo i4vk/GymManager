@@ -4,15 +4,6 @@ var exec = require('child_process').exec;
 var jest = require('gulp-jest').default;
 var apidoc = require('gulp-apidoc');
 
-// Tarea para instalar todas las dependencias del proyecto
-gulp.task('install', function (cb) {
-  exec('npm install', function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
-});
-
 // Tarea para iniciar el servidor creando una instancia de pm2
 gulp.task('start', function(cb) {
   pm2.connect(false, function(err) {
@@ -83,4 +74,4 @@ gulp.task('doc', function(done){
 });
 
 // Tarea default que instala los requisitos y ejecuta los test posteriormente
-gulp.task('default', gulp.series('install', 'test'));
+gulp.task('default', gulp.series('test'));
