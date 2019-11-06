@@ -19,7 +19,8 @@ Las herramientas utilizadas para llevar a cabo el proyecto serán las siguientes
     La decisión de usar jest y no usar mocha viene dada del hecho de que jest es un paquete más simple que mocha, pero que sin embargo, para el proyecto que nosotros tenemos entre manos, será totalmente válido.
 
     - **Supertest**. Supertest es un framework que combinaremos con *Jest* para poder testear de esta manera nuestra api REST. Este framework nos añade funcionalidades para poder hacer peticiones a nuestra api sin necesidad de tener que levantar el servidor.  
-    Dado que para ejecutar los test no nos interesa tener que levantar el servidor y después pararlo, entonces *Supertest* es nuestra solución.
+    Dado que para ejecutar los test no nos interesa tener que levantar el servidor y después pararlo, entonces *Supertest* es nuestra solución.  
+    A partir de estas peticiones a nuestra api, podremos comprobar posteriormente el correcto funcionamiento de la misma, además de que el resultado obtenido es el esperado.
 
   - **Travis-CI** para la integración continua, junto con **Shippable**.  
   A la hora de implementar un sistema, es importante comprobar su correcto funcionamiento antes de que este sea desplegado. Un servicio que no ha sido testeado no se puede considerar un servicio que funciona. Por lo tanto, para comprobar que se cumplen los requisitos funcionales deseados, es necesario crear unos test que comprueben el correcto funcionamiento del sistema cada vez que se realiza una modificación del sistema.  
