@@ -228,10 +228,30 @@ app.delete('/clientes/id/:id', function(req, res) {
 * @apiDescription Comprueba estado del servidor
 * @apiGroup Status
 * @apiName GetStatus
-* @apiSuccess status Estado del servidor
+* @apiSuccess status Estado del servidor y ejemplo de ruta
 */
 app.get('/status', function(req, res) {
-  res.status(200).json({status:"OK"})
+  ejemplo = {status:"OK", ejemplo:{ruta:"/clientes", valor:{
+    "1": {
+      "nombre": "Iván",
+      "apellidos": "Garzón Segura",
+      "dni": "1234567S",
+      "email": "ivangarzon98@correo.ugr.es"
+    },
+    "2": {
+      "nombre": "Antonio",
+      "apellidos": "Papaya Telescopio",
+      "dni": "9999999V",
+      "email": "modificado@hello.com"
+    },
+    "3": {
+      "nombre": "Rodrigo",
+      "apellidos": "Rodriguez",
+      "dni": "987123S",
+      "email": "telescopio@correo.ugr.es"
+    }
+  }}}
+  res.status(200).json(ejemplo)
 });
 
 module.exports = app;

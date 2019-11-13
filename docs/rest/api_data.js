@@ -483,7 +483,7 @@ define({ "api": [
             "group": "Success 200",
             "optional": false,
             "field": "status",
-            "description": "<p>Estado del servidor</p>"
+            "description": "<p>Estado del servidor y ejemplo de ruta</p>"
           }
         ]
       }
