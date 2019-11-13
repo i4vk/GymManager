@@ -28,11 +28,14 @@ gulp.task('start', function(cb) {
 });
 
 gulp.task('heroku:deploy', function(cb) {
-  exec('npm install pm2 -g', function(err, stdout, stderr) {
+  exec('pm2 start ./src/bin/www', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
   });
+});
+
+gulp.task('heroku', function(cb) {
   exec('pm2 start ./src/bin/www', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
