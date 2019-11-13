@@ -1,1 +1,1 @@
-web: gulp start-no-pm2
+web: gulp heroku

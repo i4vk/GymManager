@@ -28,7 +28,7 @@ gulp.task('start', function(cb) {
 });
 
 
-gulp.task('start-no-pm2', function(cb) {
+gulp.task('heroku', function(cb) {
   exec('node ./src/bin/www', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
