@@ -28,25 +28,11 @@ gulp.task('start', function(cb) {
 });
 
 gulp.task('heroku:deploy', function(cb) {
-  pm2.connect(false, function(err) {
-    if (err) {
-      console.error(err);
-      process.exit(2);
-    }
-
-    pm2.start({
-      name: 'GymManager',
-      script: './src/bin/www',
-      execMode: 'cluster',
-      instances: 1
-    }, function (err) {
-      if (err) {
-        throw err;
-      }
-      console.log("Iniciando servidor GymManager");
-    });
-  })
-  pm2.disconnect();
+  exec('./node_modules/pm2/pm2 ./src/bin/www', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
 });
 
 // Detiene la instancia de pm2 del servidor en ejecución
