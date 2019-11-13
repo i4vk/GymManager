@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "pm2 start ./src/bin/www",
+    "start-simple": "node ./src/bin/www",
     "stop": "pm2 stop ./src/bin/www",
     "delete": "pm2 delete ./src/bin/www",
     "restart": "pm2 restart ./src/bin/www",

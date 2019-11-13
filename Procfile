@@ -1,1 +1,1 @@
-web: gulp heroku
+web: npm start-simple
