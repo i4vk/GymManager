@@ -1,1 +1,1 @@
-web: npm start-simple
+web: npm run start-simple
