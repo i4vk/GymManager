@@ -27,6 +27,14 @@ gulp.task('start', function(cb) {
   pm2.disconnect();
 });
 
+gulp.task('start-no-pm2', function(cb) {
+  exec('node ./src/bin/www', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
 // Detiene la instancia de pm2 del servidor en ejecución
 gulp.task('stop', function(cb) {
   exec('pm2 stop ./src/bin/www', function(err, stdout, stderr) {
