@@ -28,7 +28,11 @@ gulp.task('start', function(cb) {
 });
 
 gulp.task('heroku:deploy', function(cb) {
-  console.log("Desplegando GymManager")
+  exec('echo Desplegando', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
 });
 
 gulp.task('heroku', function(cb) {
