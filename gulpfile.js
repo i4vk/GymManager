@@ -36,7 +36,7 @@ gulp.task('heroku:deploy', function(cb) {
 });
 
 gulp.task('heroku', function(cb) {
-  exec('pm2 start ./src/bin/www', function(err, stdout, stderr) {
+  exec('node start ./src/bin/www', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
