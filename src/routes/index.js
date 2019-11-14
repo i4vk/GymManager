@@ -258,7 +258,6 @@ app.delete('/clientes/id/:id', function(req, res) {
 *       }
 *     }
 */
-*/
 app.get('/status', function(req, res) {
   ejemplo = {status:"OK", ejemplo:{ruta:"/clientes", valor:{
     "1": {
