@@ -1,1 +1,1 @@
-web: npm run start-simple
+web: gulp start-simple
