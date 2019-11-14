@@ -45,3 +45,54 @@ Para ello, debemos ir a la configuración de la app desde la web de heroku, y en
 ![](./images/despliegue_automatico_heroku.png)
 
 De esta manera ya tendríamos totalmente configurado el despliegue automático en Heroku.
+
+
+# Azure
+
+Posteriormente, y dado que gracias a Heroku ya me he hecho a la idea de cómo funciona exactamente un PaaS, he decidido hacer también el despliegue en Azure, para probar otro PaaS diferente. La elección de este ha sido porque disponemos de 100$ gratis por registrarnos con el correo de la UGR.
+
+Para empezar, al igual que en Heroku, lo primero que debemos hacer es descargarnos el CLI, en este caso **az**, y posteriormente un login con azure, de la siguiente manera:
+
+        $ az login
+
+Esto nos abrirá una página en el navegador para que nos identifiquemos con nuestro usuario y contraseña. Una vez hecho esto, podemos proceder.
+
+Ahora, lo primero que debemos hacer es crear la aplicación en azure. Para ello, antes debemos crear un grupo de recursos donde estará contenida nuestra aplicación.
+
+        $ az group create --location westeurope --name GymManager
+
+Al crearlo, le indicamos que el grupo de recursos estará situado en EUWest, y se llamará GymManager.
+
+Posteriormente, para no tener que poner la localización y el nombre del grupo de recursos en todos los comandos que realicemos a partir de ahora, realizaremos lo siguiente:
+
+        $ az configure --defaults  group=GymManager location=westeurope
+
+Una vez hecho esto, definimos un plan de facturación, necesario para poder crear el servicio. En este caso, tomamos la opción gratuita de la siguiente manera:
+
+        $ az appservice plan create --name free --sku F1
+
+Ahora, ya podemos crear la aplicación, a la cual llamaré *gymmanager-iv-1920*:
+
+        $ az webapp create --name gymmanager-iv-1920 --plan free
+
+Le indicamos además el plan al que se acogerá.  
+Posteriormente, una vez creada la aplicación, indicamos el usuario y la contraseña con la que nos identificaremos cada vez que realicemos un despliegue, y configuramos entonces el despliegue junto con Git de la siguiente manera:
+
+        $ az webapp deployment source config-local-git --name gymmanager-iv-1920
+        $ git remote add azure https://gymmanager-iv-1920.scm.azurewebsites.net/gymmanager-iv-1920.git
+
+De esta manera, ya podemos hacer un push desde nuestro git local a azure. Si queremos desplegar entonces el código, haríamos:
+
+        $ git push azure master
+
+Sin embargo, al igual que hicimos en Heroku, queremos que el despliegue se haga directamente desde Github. Por lo tanto, vamos a proceder a configurarlo desde la web de azure. 
+
+Para ello, lo primero que debemos hacer es desconectar el despliegue desde *local git*, y posteriormente nos saldrá un menú donde podremos seleccionar la opción de GitHub. Dicho menú es el siguiente:
+
+![](./images/github_azure.png)
+
+Posteriormente, nos identificamos con nuestra cuenta de GitHub, y seleccionamos el repositorio y la rama desde la que queremos que se haga el despliegue, quedando entonces la configuración de la siguiente manera:
+
+![](./images/config_repo_azure.png)
+
+De esta manera ya tendríamos configurado el repositorio para que cada vez que se haga un push a github, se despliegue entonces a azure directamente.
