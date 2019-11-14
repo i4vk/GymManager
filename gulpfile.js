@@ -43,6 +43,14 @@ gulp.task('heroku', function(cb) {
   });
 });
 
+gulp.task('start-simple', function(cb) {
+  exec('node ./src/bin/www', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
+
 // Detiene la instancia de pm2 del servidor en ejecución
 gulp.task('stop', function(cb) {
   exec('pm2 stop ./src/bin/www', function(err, stdout, stderr) {
