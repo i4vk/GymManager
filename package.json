@@ -10,7 +10,7 @@
   },
   "engines": {
     "node": ">=10.15.0",
-    "npm": ">=6.12.0"
+    "npm": ">=6.9.0"
   },
   "scripts": {
     "start": "pm2 start ./src/bin/www",
