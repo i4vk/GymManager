@@ -64,8 +64,8 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
 
 - Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
 - API REST: [Endpoints](https://i4vk.github.io/GymManager/rest/index.html)  
-- Herramientas utilizadas: [Herramientas](https://github.com/i4vk/GymManager/blob/master/docs/herramientas.md)  
-- Herramienta de construcción: [Gulpfile](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md)  
-- Integración continua: [CI](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md)  
-- Hooks Git: [Hooks](https://github.com/i4vk/GymManager/blob/master/docs/doc_hooks.md)  
-- Despliegue en PaaS: [Despliegue](https://github.com/i4vk/GymManager/blob/master/docs/despliegue.md)
+- Herramientas utilizadas: [Herramientas](https://i4vk.github.io/GymManager/herramientas)  
+- Herramienta de construcción: [Gulpfile](https://i4vk.github.io/GymManager/doc_herramienta_construccion)  
+- Integración continua: [CI](https://i4vk.github.io/GymManager/doc_CI)  
+- Hooks Git: [Hooks](https://i4vk.github.io/GymManager/doc_hooks)  
+- Despliegue en PaaS: [Despliegue](https://i4vk.github.io/GymManager/despliegue)

@@ -6,7 +6,9 @@ Antes de ejecutar cualquier tarea de *gulp* necesitamos haber instalado todos lo
 
 Las tareas disponibles son las siguientes:
 
-- **gulp start**: Levanta el servidor para poder comenzar a hacerle peticiones REST.
+- **gulp start**: Levanta el servidor para poder comenzar a hacerle peticiones REST, usando pm2.
+
+- **gulp start-simple**: Levanta el servidor sin pm2, haciendo uso simplemente de node.
 
 - **gulp stop**: Detiene el servidor.
 
