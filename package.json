@@ -13,7 +13,7 @@
     "npm": ">=6.9.0"
   },
   "scripts": {
-    "start": "node ./src/bin/www",
+    "start": "pm2 start ./src/bin/www",
     "start-simple": "node ./src/bin/www",
     "stop": "pm2 stop ./src/bin/www",
     "delete": "pm2 delete ./src/bin/www",
