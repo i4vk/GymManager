@@ -16,7 +16,7 @@ Ahora, lo que debemos hacer es crear nuestra app en heroku. Para ello, ejecutamo
 
 Esto nos creará una app de nombre aleatorio, que podremos modificar más adelante de la siguiente manera:
 
-        # heroku apps:rename gym-manager-iv-1920
+        $ heroku apps:rename gym-manager-iv-1920
 
 Dado que no le hemos especificado ningún *buildpack*, heroku tomará uno por defecto que una stack para nuestro lenguaje predeterminado, en este caso *Node.js*. Sin embargo, este buildpack no tiene instalado por defecto la herramienta de construcción que yo utilizado, en este caso *Gulp*. Por lo tanto tenemos dos opciones, una es buscar un buildpack ya creado en github que integre esta herramienta de construcción, o crear uno nosotros mismos.
 
