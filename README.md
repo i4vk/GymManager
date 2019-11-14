@@ -68,3 +68,4 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
 - Herramienta de construcción: [Gulpfile](https://github.com/i4vk/GymManager/blob/master/docs/doc_herramienta_construccion.md)  
 - Integración continua: [CI](https://github.com/i4vk/GymManager/blob/master/docs/doc_CI.md)  
 - Hooks Git: [Hooks](https://github.com/i4vk/GymManager/blob/master/docs/doc_hooks.md)  
+- Despliegue en PaaS: [Despliegue](https://github.com/i4vk/GymManager/blob/master/docs/despliegue.md)
