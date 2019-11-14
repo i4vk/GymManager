@@ -229,33 +229,35 @@ app.delete('/clientes/id/:id', function(req, res) {
 * @apiGroup Status
 * @apiName GetStatus
 * @apiSuccess status Estado del servidor y ejemplo de ruta
-* @apiSiccessExample {json} Success:
-*{
-*  "status": "OK",
-*  "ejemplo": {
-*    "ruta": "/clientes",
-*    "valor": {
-*      "1": {
-*        "nombre": "Iván",
-*        "apellidos": "Garzón Segura",
-*        "dni": "1234567S",
-*        "email": "ivangarzon98@correo.ugr.es"
-*      },
-*      "2": {
-*        "nombre": "Antonio",
-*        "apellidos": "Papaya Telescopio",
-*        "dni": "9999999V",
-*        "email": "modificado@hello.com"
-*      },
-*      "3": {
-*        "nombre": "Rodrigo",
-*        "apellidos": "Rodriguez",
-*        "dni": "987123S",
-*        "email": "telescopio@correo.ugr.es"
-*      }
-*    }
-*  }
-*}
+* @apiSuccessExample Success-Response:
+*     HTTP/1.1 200 OK
+*     {
+*       "status": "OK",
+*       "ejemplo": {
+*         "ruta": "/clientes",
+*         "valor": {
+*           "1": {
+*             "nombre": "Iván",
+*             "apellidos": "Garzón Segura",
+*             "dni": "1234567S",
+*             "email": "ivangarzon98@correo.ugr.es"
+*           },
+*           "2": {
+*             "nombre": "Antonio",
+*             "apellidos": "Papaya Telescopio",
+*             "dni": "9999999V",
+*             "email": "modificado@hello.com"
+*           },
+*           "3": {
+*             "nombre": "Rodrigo",
+*             "apellidos": "Rodriguez",
+*             "dni": "987123S",
+*             "email": "telescopio@correo.ugr.es"
+*           }
+*         }
+*       }
+*     }
+*/
 */
 app.get('/status', function(req, res) {
   ejemplo = {status:"OK", ejemplo:{ruta:"/clientes", valor:{

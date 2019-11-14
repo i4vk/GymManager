@@ -486,7 +486,14 @@ define({ "api": [
             "description": "<p>Estado del servidor y ejemplo de ruta</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": \"OK\",\n  \"ejemplo\": {\n    \"ruta\": \"/clientes\",\n    \"valor\": {\n      \"1\": {\n        \"nombre\": \"Iván\",\n        \"apellidos\": \"Garzón Segura\",\n        \"dni\": \"1234567S\",\n        \"email\": \"ivangarzon98@correo.ugr.es\"\n      },\n      \"2\": {\n        \"nombre\": \"Antonio\",\n        \"apellidos\": \"Papaya Telescopio\",\n        \"dni\": \"9999999V\",\n        \"email\": \"modificado@hello.com\"\n      },\n      \"3\": {\n        \"nombre\": \"Rodrigo\",\n        \"apellidos\": \"Rodriguez\",\n        \"dni\": \"987123S\",\n        \"email\": \"telescopio@correo.ugr.es\"\n      }\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "src/routes/index.js",
