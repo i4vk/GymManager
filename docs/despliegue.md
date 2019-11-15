@@ -85,6 +85,8 @@ De esta manera, ya podemos hacer un push desde nuestro git local a azure. Si que
 
         $ git push azure master
 
+Por defecto, Azure utiliza la orden *npm start* para levantar el servidor. Sin embargo, aunque he intentado que esto se haga con gulp en vez de con npm, no lo he conseguido. Por lo tanto, lo he dejado con esta opción por defecto, ya que aunque no es la herramienta de construcción que utilizo principalmente, funciona correctamente.
+
 Sin embargo, al igual que hicimos en Heroku, queremos que el despliegue se haga directamente desde Github. Por lo tanto, vamos a proceder a configurarlo desde la web de azure. 
 
 Para ello, lo primero que debemos hacer es desconectar el despliegue desde *local git*, y posteriormente nos saldrá un menú donde podremos seleccionar la opción de GitHub. Dicho menú es el siguiente:

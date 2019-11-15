@@ -60,11 +60,13 @@ Para llevar a cabo esta función, debe disponer de las siguientes funcionalidade
   - Consultar la lista completa de clientes.
   - Consultar los datos de un cliente específico.
 
-## Documentación
+# Enlaces a la aplicación
 
 Despliegue: https://gym-manager-iv-1920.herokuapp.com/
 
 Despliegue 2: https://gymmanager-iv-1920.azurewebsites.net/
+
+## Documentación
 
 - Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
 - API REST: [Endpoints](https://i4vk.github.io/GymManager/rest/index.html)  
