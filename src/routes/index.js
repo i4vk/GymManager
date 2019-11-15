@@ -1,5 +1,6 @@
 var express=require('express');
 var app=express();
+var fs=require('fs');
 var path = require('path')
 var gymManager = require("../gymManager.js");
 
@@ -282,5 +283,9 @@ app.get('/status', function(req, res) {
   }}}
   res.status(200).json(ejemplo)
 });
+
+app.get('/', function(req, res) {
+  res.status(200).send("Para ver el estado del servidor y un ejemplo de uso, accede a la ruta /status")
+})
 
 module.exports = app;

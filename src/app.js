@@ -26,6 +26,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   if (err.status) {
+    console.log(err);
     res.status(err.status).json({"error":err.message});
   } else {
     res.sendStatus(500);
