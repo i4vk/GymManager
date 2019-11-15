@@ -1,6 +1,7 @@
 var GymManager = require('../src/gymManager.js');
+var path = require('path')
 
-var clientes = new GymManager('./test/data/database.json');
+var clientes = new GymManager(path.join(__dirname, './data/database.json'));
 var fs=require('fs');
 
 beforeEach(() => {
@@ -8,7 +9,7 @@ beforeEach(() => {
 });
 
 test('Carga archivo correctamente', () => {
-  clientes.load("./test/data/prueba_io.json");
+  clientes.load(path.join(__dirname, "./data/prueba_io.json"));
   db_esperada = {
     "clientes": {
       "1": {

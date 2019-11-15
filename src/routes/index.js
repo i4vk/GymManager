@@ -1,10 +1,11 @@
 var express=require('express');
 var app=express();
+var path = require('path')
 var gymManager = require("../gymManager.js");
 
 app.set('json spaces', 2)
 
-var clientes = new gymManager('./src/data/database.json');
+var clientes = new gymManager(path.join(__dirname, "../data/database.json"));
 
 /**
 * @apiDefine parametros

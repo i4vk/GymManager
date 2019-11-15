@@ -1,6 +1,7 @@
 var GymManager = require('../src/gymManager.js');
+var path = require('path')
 
-var clientes = new GymManager('./test/data/database.json');
+var clientes = new GymManager(path.join(__dirname, './data/database.json'));
 
 beforeEach(() => {
   clientes.clear();
