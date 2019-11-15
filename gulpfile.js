@@ -27,7 +27,6 @@ gulp.task('start', function(cb) {
   pm2.disconnect();
 });
 
-
 // Inicia el servidor sin hacer uso de pm2
 gulp.task('start-simple', function(cb) {
   exec('node ./src/bin/www', function(err, stdout, stderr) {
