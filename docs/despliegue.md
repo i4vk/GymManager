@@ -93,8 +93,43 @@ Para ello, lo primero que debemos hacer es desconectar el despliegue desde *loca
 
 ![](./images/github_azure.png)
 
-Posteriormente, nos identificamos con nuestra cuenta de GitHub, y seleccionamos el repositorio y la rama desde la que queremos que se haga el despliegue, quedando entonces la configuración de la siguiente manera:
+Nos pedirá entonces nuestras credenciales de github, y el repositorio sobre el que queremos llevar a cabo las siguientes acciones.
 
-![](./images/config_repo_azure.png)
+Una vez seleccionado github, dado que queremos que se despliegue únicamente tras pasar los test, entonces debemos seleccionar la opción de crear un pipeline.
 
-De esta manera ya tendríamos configurado el repositorio para que cada vez que se haga un push a github, se despliegue entonces a azure directamente.
+Para poder crear un pipeline, debemos de estar dados de alta en **Azure DevOps**. Tras registrarnos, debemos crear un proyecto sobre el que trabajaremos con nuestra aplicación, y una vez hecho esto, ya podemos pasar a crear el pipeline.
+
+En este pipeline podremos indicar los pasos que se deberán llevar a cabo antes de hacer el despligue. Esto nos creará un fichero llamado **[azure-pipelines.yml](https://github.com/i4vk/GymManager/blob/master/azure-pipelines.yml)**.
+
+Este fichero contiene los siguientes apartados:
+
+Primero, indicamos las ramas del repositorio sobre las que se aplicará el despliegue continuo. En este caso, sobre la rama master.  
+~~~
+trigger:
+- master
+~~~
+
+Posteriormente, indicamos el sistema operativo sobre el que se desplegará. Indicamos la última versión de ubuntu de la siguiente manera:  
+~~~
+pool:
+  vmImage: 'ubuntu-latest'
+~~~
+
+Ahora, indicamos la versión de node que se ejecutará, mediante la siguiente tarea:  
+~~~
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+~~~
+
+Y finalmente, los pasos que se llevarán a cabo en el pipeline. En este caso, lo primero que haremos será instalar todas las dependencias con *npm install*, y posteriormente, hacemos que se pasen los test con *gulp test*.  
+~~~
+- script: |
+    npm install
+    gulp test
+  displayName: 'npm install and test'
+~~~
+
+De esta manera, ya tendríamos configurado nuestro pipeline para que cada vez que se haga un push sobre la rama master de github, se ejecute dicho pipeline, y si todo funciona correctamente, entonces se comience el despliegue de la aplicación.
