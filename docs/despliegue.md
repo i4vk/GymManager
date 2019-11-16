@@ -10,9 +10,9 @@ Lo primero que debemos hacer para desplegarlo es descargarnos el CLI propio de H
 
 Tras esto, se abrirá una pestaña en nuestro navegador donde tendremos que iniciar sesión con nuestras credenciales de Heroku. Una vez hecho esto, nos indicará que hemos iniciado sesión correctamente y podremos continuar.
 
-Ahora, lo que debemos hacer es crear nuestra app en heroku. Para ello, ejecutamos lo siguiente:
+Ahora, lo que debemos hacer es crear nuestra app en heroku en la región que le indiquemos. En este caso, seleccionaré Europa. Para ello, ejecutamos lo siguiente:
 
-        $ heroku create
+        $ heroku apps:create --region eu
 
 Esto nos creará una app de nombre aleatorio, que podremos modificar más adelante de la siguiente manera:
 
