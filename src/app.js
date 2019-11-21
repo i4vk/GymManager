@@ -4,11 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var fs = require('fs')
 
 var indexRouter = require('./routes/index');
 
 var app = express();
 
+var accessLogStream = fs.createWriteStream(path.join(__dirname, './logs/access.log'))
+
+app.use(logger('common', {stream: accessLogStream}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,7 +30,6 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   if (err.status) {
-    console.log(err);
     res.status(err.status).json({"error":err.message});
   } else {
     res.sendStatus(500);
