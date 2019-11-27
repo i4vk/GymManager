@@ -43,4 +43,24 @@ Lo siguiente que haremos será indicar el comando que se usará para arrancar nu
 
 Y finalmente, *exponemos* el puerto en el que estará escuchando nuestra aplicación. Esto es importante dado que para hacer el posterior despliegue, algunos PaaS necesitan conocer el puerto de escucha para poder mapearlo posteriormente. Esto lo haremos de la siguiente manera:
 
-    EXPOSE 8080
+        EXPOSE 8080
+
+# Despliegue en DockerHub
+
+DockerHub es una plataforma de alojamiento de repositorios que contienen imágenes de Docker creadas por la comunidad. Dado que hemos creado nuestra propia imagen, vamos a desplegarla en dicha plataforma. 
+
+Para ello, lo primero que debemos hacer es crear un repositorio en dicha plataforma, configurándolo de la siguiente manera:
+
+![](./images/docker_hub_repo.png)
+
+Como podemos observar en la parte de abajo de la imagen, hemos configurado el repositorio para que cada vez que se haga un *push* al repositorio de GitHub, automáticamente se construya una nueva imagen de Docker haciendo uso del Dockerfile de dicho repositorio, y posteriormente se despliegue.
+
+Si ahora pulsamos el botón de *Create & Build*, haremos que se produzca el primer despliegue desde el propio repositorio de GitHub que tenemos configurado.
+
+De esta manera, ya tendremos nuestra imagen desplegada en DockerHub, y cada vez que hagamos un push a nuestro repositorio de GitHub posteriormente se desplegará nuestra imagen actualizada.
+
+Para descargarla, únicamente sería necesario ejecutar lo siguiente:
+
+        docker pull i4vk/gymmanager:latest
+
+Con esto descargaremos la última versión de la imagen desde el repositorio de DockerHub.
