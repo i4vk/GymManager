@@ -7,6 +7,8 @@ LABEL maintainer='Iván Garzón (ivangs98@gmail.com)'
 # Creamos el directorio de trabajo de nuestro proyecto
 WORKDIR /gymmanager
 
+ENV PORT 8080
+
 # Copiamos los archivos necesarios para el funcionamiento de la aplicación
 COPY package.json ./
 COPY src ./src
@@ -22,3 +24,5 @@ RUN npm prune --production
 RUN npm install -g gulp
 
 CMD ["gulp", "start-simple"]
+
+EXPOSE 8080
