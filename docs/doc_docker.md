@@ -64,3 +64,35 @@ Para descargarla, únicamente sería necesario ejecutar lo siguiente:
         docker pull i4vk/gymmanager:latest
 
 Con esto descargaremos la última versión de la imagen desde el repositorio de DockerHub.
+
+Sin embargo, esto no nos asegura que el despliegue en DockerHub se realice después de que se pasen los test, por lo cual, podría darse el caso de desplegar una versión errónea de la aplicación. Para solucionarlo, la única solución posible pasa por realizar el despliegue desde el propio Travis.  
+Para ello, debemos modificar el archivo *.travis.yml*, para añadir esa funcionalidad. Este estará documentado en el siguiente [enlace](https://i4vk.github.io/GymManager/doc_CI).
+
+Sin embargo, la parte importante de dicho archivo que nos permitirá realizar el despliegue es la siguiente:
+
+        deploy:
+           provider: script
+           script: sh docker_push.sh
+           on:
+              branch: master
+
+Con este bloque, lo que le indicamos es que se realice un despliegue (si se pasan los test), haciendo uso del script *docker_push.sh* para realizarlo. Además indicamos que esto únicamente se haga sobre la rama master. 
+
+Como vemos, hacemos uso de un script para automatizar el despliegue con Travis. Este fichero contiene lo siguiente:
+
+        #!/bin/bash
+
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker build -t gymmanager .
+        docker tag gymmanager i4vk/gymmanager
+        docker push i4vk/gymmanager
+
+Básicamente, el funcionamiento de este script consiste en que primero se logea en DockerHub, usando nuestras credenciales de dicha plataforma. Estas credenciales estarán definidas como variables de entorno en el propio Travis, por motivos de seguridad, ya que no la podemos poner directamente en este fichero ya que serían visibles a todo el mundo.  
+Para definir dichas variables, debemos acceder a la configuración del repositorio desde la web de Travis, y bajar hasta la sección de *Variables de entorno*. Una vez ahí, las definimos de la siguiente manera:
+
+![](./images/variables_travis.png)
+
+Una vez se ha hecho el login, posteriormente se pasa a construír la imagen que posteriormente será desplegada. A esta imagen se le asocia un tag, y finalmente se hace un push al repositorio correspondiente.
+
+De esta manera, ya tendríamos totalmente configurado el despliegue continuo de nuestra imagen cada vez que hagamos un push a nuestro repositorio de GitHub.  
+Era importante hacer este paso de comprobar si se pasan los test antes de desplegar a DockerHub ya que posteriormente, como se podrá ver en la documentación del despliegue, al realizar dicho despliegue en Azure, tomará siempre la imagen desde el repositorio de DockerHub, y por lo tanto, es importante que dicho repositorio siempre tenga una versión correcta de la aplicación.
