@@ -79,5 +79,5 @@ Contenedor 2: https://gym-manager-iv.azurewebsites.net/
 - Integración continua: [CI](https://i4vk.github.io/GymManager/doc_CI)  
 - Hooks Git: [Hooks](https://i4vk.github.io/GymManager/doc_hooks)  
 - Despliegue en PaaS: [Despliegue](https://i4vk.github.io/GymManager/despliegue)
-- Docker: [Docker](https://i4vk.github.io/GymManager/docker)
+- Docker: [Docker](https://i4vk.github.io/GymManager/doc_docker)
 - Despliegue en PaaS mediante Docker: [Docker PaaS](https://i4vk.github.io/GymManager/despliegue_docker)
