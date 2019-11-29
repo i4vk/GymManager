@@ -14,9 +14,8 @@ before_script:
 script:
   - gulp test
   - gulp coveralls
-after_success:
-  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
-      docker build -t gymmanager . ;
-      docker push i4vk/gymmanager ;
-    fi
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
