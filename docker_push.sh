@@ -1,4 +1,5 @@
 #!/bin/bash
 
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-echo "Hello"
+docker build -t gymmanager .
+docker push i4vk/gymmanager
