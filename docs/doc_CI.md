@@ -13,15 +13,21 @@ Adicionalmente, en travis se ha añadido un script para comprobar la cobertura d
 
 # Travis
 
+Indicamos que para ejecutar las órdenes, es necesario que se haga como administrador. Esto es debido a que docker así lo requiere. Además, indicamos que se debe arrancar el servicio de Docker (para el despliegue).
+~~~
+sudo: 'required'
+services:
+  - 'docker'
+~~~
+
 Lenguaje utilizado para la integración continua.
 ~~~
 language: node_js
 ~~~
 
-Versiones utilizadas para los test, en este caso 10.16.3 y 12.10.0. La primera de ellas por ser la estable, y la segunda por ser la más reciente.
+Version del lenguaje utilizada para probar la aplicación.
 ~~~
 node_js:
-  - 12.10.0
   - 10.16.3
 ~~~
 
@@ -47,6 +53,15 @@ script:
 ~~~
 
 La cobertura del código se podrá observar en un *badge* al principio del archivo *README.md*.
+
+Dado que se realizará un despliegue del contenedor en DockerHub, indicamos que dicho despliegue se realice usando el script [docker_push.sh](https://github.com/i4vk/GymManager/blob/master/docker_push.sh). Esto se realizará únicamente desde la rama *master*.
+~~~
+deploy:
+  provider: script
+  script: sh docker_push.sh
+  on:
+    branch: master
+~~~
 
 # Shippable
 
