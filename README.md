@@ -66,6 +66,10 @@ Despliegue: https://gym-manager-iv-1920.herokuapp.com/
 
 Despliegue 2: https://gymmanager-iv-1920.azurewebsites.net/
 
+Contenedor: https://gym-manager-iv-1920.herokuapp.com/
+
+Contenedor 2: https://gym-manager-iv.azurewebsites.net/
+
 ## Documentación
 
 - Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
@@ -75,3 +79,5 @@ Despliegue 2: https://gymmanager-iv-1920.azurewebsites.net/
 - Integración continua: [CI](https://i4vk.github.io/GymManager/doc_CI)  
 - Hooks Git: [Hooks](https://i4vk.github.io/GymManager/doc_hooks)  
 - Despliegue en PaaS: [Despliegue](https://i4vk.github.io/GymManager/despliegue)
+- Docker: [Docker](https://i4vk.github.io/GymManager/docker)
+- Despliegue en PaaS mediante Docker: [Docker PaaS](https://i4vk.github.io/GymManager/despliegue_docker)
