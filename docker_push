@@ -1,5 +1,4 @@
 #!/bin/bash
 
-git checkout .
-echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker build -t gymmanager .
 docker push i4vk/gymmanager
