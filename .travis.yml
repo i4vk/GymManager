@@ -11,3 +11,8 @@ before_script:
 script:
   - gulp test
   - gulp coveralls
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
