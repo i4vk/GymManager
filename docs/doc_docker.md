@@ -59,12 +59,6 @@ Si ahora pulsamos el botón de *Create & Build*, haremos que se produzca el prim
 
 De esta manera, ya tendremos nuestra imagen desplegada en DockerHub, y cada vez que hagamos un push a nuestro repositorio de GitHub posteriormente se desplegará nuestra imagen actualizada.
 
-Para descargarla, únicamente sería necesario ejecutar lo siguiente:
-
-        docker pull i4vk/gymmanager:latest
-
-Con esto descargaremos la última versión de la imagen desde el repositorio de DockerHub.
-
 Sin embargo, esto no nos asegura que el despliegue en DockerHub se realice después de que se pasen los test, por lo cual, podría darse el caso de desplegar una versión errónea de la aplicación. Para solucionarlo, la única solución posible pasa por realizar el despliegue desde el propio Travis.  
 Para ello, debemos modificar el archivo *.travis.yml*, para añadir esa funcionalidad. Este estará documentado en el siguiente [enlace](https://i4vk.github.io/GymManager/doc_CI).
 
@@ -96,3 +90,9 @@ Una vez se ha hecho el login, posteriormente se pasa a construír la imagen que 
 
 De esta manera, ya tendríamos totalmente configurado el despliegue continuo de nuestra imagen cada vez que hagamos un push a nuestro repositorio de GitHub.  
 Era importante hacer este paso de comprobar si se pasan los test antes de desplegar a DockerHub ya que posteriormente, como se podrá ver en la documentación del despliegue, al realizar dicho despliegue en Azure, tomará siempre la imagen desde el repositorio de DockerHub, y por lo tanto, es importante que dicho repositorio siempre tenga una versión correcta de la aplicación.
+
+Para descargarla, únicamente sería necesario ejecutar lo siguiente:
+
+        docker pull i4vk/gymmanager:latest
+
+Con esto descargaremos la última versión de la imagen desde el repositorio de DockerHub.
