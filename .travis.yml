@@ -16,6 +16,6 @@ script:
   - gulp coveralls
 deploy:
   provider: script
-  script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && docker_push
+  script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && bash docker_push.sh
   on:
     branch: master
