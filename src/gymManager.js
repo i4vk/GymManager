@@ -45,6 +45,7 @@ class GymManager {
     }
 
     this.num_clientes = Object.keys(this.db["clientes"]).length;
+    return this.db;
   }
 
   /**
