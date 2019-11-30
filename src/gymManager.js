@@ -29,6 +29,7 @@ class GymManager {
   /**
    * Carga una base de datos previamente creada.
    * @param {string} pathfile - Ruta de la base de datos en el sistema de archivos
+   * @return {JSON} Base de datos completa
    */
   load(pathfile) {
     try {
