@@ -1,5 +1,8 @@
 var GymManager = require('../src/gymManager.js');
 var path = require('path')
+var fs = require('fs')
+
+var database = require('./data/database.json')
 
 var clientes = new GymManager(path.join(__dirname, './data/database.json'));
 
@@ -99,4 +102,46 @@ test('Busca por DNI correctamente', () => {
   }
 
   expect(clientes.db["clientes"][id_cliente]).toEqual(un_cliente);
+});
+
+test('Función update falló', () => {
+  var thrown_error = () => clientes.update("WRONG_ID", "id", "NEW_DNI");
+  var expected_thrown_error = new Error("CannotUpdateClient");
+  expect(thrown_error).toThrow(expected_thrown_error);
+});
+
+test('Función getCliente falló', () => {
+  var thrown_error = () => clientes.getCliente("WRONG_ID");
+  var expected_thrown_error = new Error("ClientNotFound");
+  expect(thrown_error).toThrow(expected_thrown_error);
+});
+
+test('Función eliminarCliente falló', () => {
+  var thrown_error = () => clientes.eliminarCliente("WRONG_ID");
+  var expected_thrown_error = new Error("CannotDeleteClient");
+  expect(thrown_error).toThrow(expected_thrown_error);
+});
+
+test('Función insert falló - MissingClientData', () => {
+  var thrown_error = () => clientes.insert({});
+  var expected_thrown_error = new Error("MissingClientData");
+  expect(thrown_error).toThrow(expected_thrown_error);
+});
+
+test('Función insert falló - MissingClientData', () => {
+  var un_cliente = {nombre:"Iván",apellidos:"Garzón Segura",dni:"1234567S",email:"ivangarzon98@correo.ugr.es", adicional:"test"};
+  var thrown_error = () => clientes.insert(un_cliente);
+  var expected_thrown_error = new Error("ClientDataError");
+  expect(thrown_error).toThrow(expected_thrown_error);
+});
+test('Función load falló - fichero inexistente', () => {
+  var pathInexistente = path.join(__dirname, './data/inexistente.json')
+  var db = clientes.load(pathInexistente);
+  var expected_json = {clientes:{}}
+  expect(db).toStrictEqual(expected_json);
+  fs.unlink(pathInexistente, (err) => {
+    if (err) {
+      console.error(err)
+    }
+  })
 });
