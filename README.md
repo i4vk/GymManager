@@ -70,6 +70,8 @@ Contenedor: https://gym-manager-iv-1920.herokuapp.com/
 
 Contenedor 2: https://gym-manager-iv.azurewebsites.net/
 
+Docker Hub: https://hub.docker.com/r/i4vk/gymmanager
+
 ## Documentación
 
 - Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
