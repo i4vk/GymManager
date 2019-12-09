@@ -1,0 +1,24 @@
+---
+- hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  become: yes
+  tasks:
+    - name: Actualiza lista de paquetes apt
+      apt:
+        update_cache: yes
+
+    - name: Instala git
+      apt: 
+        name: git
+
+    - name: Instala node
+      apt: 
+        name:
+          - nodejs
+          - npm
+
+    - name: Instalar gulp
+      npm:
+        name: gulp
+        global: yes
