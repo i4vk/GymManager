@@ -8,15 +8,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.box_check_update = false
 
-  config.vm.network "forwarded_port", guest: 8080, host: 8080, host_ip: "127.0.0.1"
+  # config.vm.network "forwarded_port", guest: 8080, host: 8080, host_ip: "127.0.0.1"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = "1024"
   end
 
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+  end
 end
