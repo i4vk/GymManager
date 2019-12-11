@@ -52,7 +52,7 @@ Ahora ya podríamos arrancar la máquina virtual. Para ello, he creado las sigui
 - **vm-start**: Arranca la máquina virtual.
 - **vm-stop**: Detiene la ejecución de la VM.
 
-En *vm-start* arrancamos la máquina con *vagrant up --no-provision*. Con este comando hacemos que se arranque la máquina sin realizar el aprovisionamiento, ya que lo haremos más tarde manualmente.
+En *vm-start* arrancamos la máquina con ```vagrant up --no-provision```. Con este comando hacemos que se arranque la máquina sin realizar el aprovisionamiento, ya que lo haremos más tarde manualmente.
 
 Si quisiéramos acceder a nuestra VM que hemos creado, podríamos hacerlo con el siguiente comando:
 
@@ -99,17 +99,24 @@ Este fichero, contenido en el directorio *provision/*, contiene lo siguiente:
       npm:
         name: gulp
         global: yes
+
+    # Instalamos pm2 globalmente
+    - name: Instalar pm2
+      npm:
+        name: pm2
+        global: yes
 ~~~
 
 En general, lo que hacemos en este archivo es declarar una serie de tareas que se aplicarán sobre el grupo de VMs *gm*, definido anteriormente en el archivo de inventario de Vagrant.  
 Posteriormente, ajustamos el intérprete en el que se apoyará ansible como el intérprete de Python3. En mi caso ha sido necesario ya que por la versión de Ansible, el intérprete por defecto de Python2 no funcionaba correctamente.
 
-En este momento, ya comenzamos con las tareas. Antes de llevarlas a cabo, hacemos *become: yes*, que quiere decir que a partir de ahí, en ese bloque se van a usar privilegios de superusuario.  
+En este momento, ya comenzamos con las tareas. Antes de llevarlas a cabo, indicamos: ```become: yes```, que quiere decir que a partir de ahí, en ese bloque se van a usar privilegios de superusuario.  
 Dichas tareas son las siguientes:
 
 - Actualizamos la lista de paquetes de ubuntu haciendo un *apt update*.
 - Instalamos *git*.
 - Instalamos node y npm, que serán necesarios para ejecutar nuestra aplicación.
 - Instalamos gulp globalmente, que será necesario posteriormente para ejecutar las tareas de nuestra aplicación.
+- Instalamos pm2 de nuevo globalmente. A través de él arrancaremos finalmente la aplicación para el despliegue.
 
 Finalmente, he creado una tarea en gulp llamada **vm-provision**. Esta tarea llamará a *vagrant provision*, que usará justamente este playbook, y llevará a cabo el aprovisionamiento sobre las máquinas virtuales definidas.

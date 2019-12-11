@@ -19,3 +19,9 @@ Las tareas disponibles son las siguientes:
 - **gulp coveralls**: Ejecuta la comprobación de la cobertura de los test sobre el código. No se puede utilizar en local, ya que es necesario que este proyecto esté en un repositorio seguido por [Coveralls](https://coveralls.io/). Por lo tanto, su utilidad vendrá en el momento de ejecutar los test en una herramienta de Integración Continua, en este caso Travis.
 
 - **gulp doc**: Compila toda la documentación del proyecto y la almacena en el directorio docs/ haciendo una distinción entre cada uno de los archivos documentados. Por ahora, la documentación consistirá en una documentación de la clase principal, contenida en *docs/gymManager*, y posteriormente la documentación de la api REST contenida en *docs/rest*.
+
+- **gulp vm-start**: Inicia la ejecución de la máquina virtual definida mediante *Vagrant*.
+
+- **gulp vm-stop**: Detiene la ejecución de la anterior VM.
+
+- **gulp vm-provide**: Realiza el aprovisionamiento de la máquina virtual comentada anteriormente.

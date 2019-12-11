@@ -25,8 +25,14 @@
           - nodejs
           - npm
 
-    # Instalamos gulp localmente
+    # Instalamos gulp globalmente
     - name: Instalar gulp
       npm:
         name: gulp
+        global: yes
+
+    # Instalamos pm2 globalmente
+    - name: Instalar pm2
+      npm:
+        name: pm2
         global: yes

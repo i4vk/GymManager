@@ -100,3 +100,4 @@ public
 *.json
 
 .vagrant/
+*.retry

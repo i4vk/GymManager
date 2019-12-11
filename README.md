@@ -72,6 +72,8 @@ Contenedor 2: https://gym-manager-iv.azurewebsites.net/
 
 Docker Hub: https://hub.docker.com/r/i4vk/gymmanager
 
+Provision: provision/playbook.yml
+
 ## Documentación
 
 - Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
