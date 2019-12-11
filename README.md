@@ -83,3 +83,4 @@ Docker Hub: https://hub.docker.com/r/i4vk/gymmanager
 - Despliegue en PaaS: [Despliegue](https://i4vk.github.io/GymManager/despliegue)
 - Docker y DockerHub: [Docker](https://i4vk.github.io/GymManager/doc_docker)
 - Despliegue en PaaS mediante Docker: [Docker PaaS](https://i4vk.github.io/GymManager/despliegue_docker)
+- Instanciación y aprovisionamiento de VM: [Aprovisionamiento](https://i4vk.github.io/GymManager/doc_VM)
