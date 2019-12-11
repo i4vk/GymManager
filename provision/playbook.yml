@@ -1,23 +1,31 @@
 ---
-- hosts: all
+# Tareas sobre los host del grupo 'gm'
+- hosts: gm
+  # Ajustamos el intérprete de ansible como python3
   vars:
     ansible_python_interpreter: /usr/bin/python3
+  
+  # Damos permisos de superusuario
   become: yes
   tasks:
+    # Hacemos un update de los paquetes con apt
     - name: Actualiza lista de paquetes apt
       apt:
         update_cache: yes
 
+    # Instalamos git
     - name: Instala git
       apt: 
         name: git
 
+    # Instalamos node y npm
     - name: Instala node
       apt: 
         name:
           - nodejs
           - npm
 
+    # Instalamos gulp localmente
     - name: Instalar gulp
       npm:
         name: gulp
