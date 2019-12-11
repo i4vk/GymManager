@@ -69,6 +69,33 @@ gulp.task('coveralls', function(cb) {
   });
 })
 
+// Instancia la VM
+gulp.task('vm-start', function(cb) {
+  exec('vagrant up --no-provision', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+})
+
+// Detiene la ejecución de la VM
+gulp.task('vm-stop', function(cb) {
+  exec('vagrant halt', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+})
+
+// Realiza el provisionamiento de la VM
+gulp.task('vm-provide', function(cb) {
+  exec('vagrant provision', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+})
+
 // Compila toda la documentación del proyecto y la almacena en el directorio docs/
 gulp.task('doc', function(done){
   exec('jsdoc ./src/gymManager.js -d ./docs/gymManager', function(err, stdout, stderr) {
