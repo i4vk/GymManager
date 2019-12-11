@@ -120,3 +120,11 @@ Dichas tareas son las siguientes:
 - Instalamos pm2 de nuevo globalmente. A través de él arrancaremos finalmente la aplicación para el despliegue.
 
 Finalmente, he creado una tarea en gulp llamada **vm-provision**. Esta tarea llamará a *vagrant provision*, que usará justamente este playbook, y llevará a cabo el aprovisionamiento sobre las máquinas virtuales definidas.
+
+## Vagrant Cloud
+
+Finalmente, he decidido subir la imagen de mi máquina virtual a la plataforma Vagrant Cloud. Para ello, simplemente hemos tenido que crear la imagen con la siguiente orden:
+
+    vagrant package --output gymmanager.box
+
+Una vez creada la imagen, simplemente debemos subirla a la plataforma. Podemos acceder a ella desde el siguiente [enlace](https://app.vagrantup.com/i4vk/boxes/gymmanager)

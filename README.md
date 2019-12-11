@@ -74,6 +74,8 @@ Docker Hub: https://hub.docker.com/r/i4vk/gymmanager
 
 Provision: provision/playbook.yml
 
+Vagrant Cloud: https://app.vagrantup.com/i4vk/boxes/gymmanager
+
 ## Documentación
 
 - Clase principal: [GymManager](https://i4vk.github.io/GymManager/gymManager/GymManager.html)  
