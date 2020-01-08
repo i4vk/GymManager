@@ -1,6 +1,6 @@
 ---
 # Tareas sobre los host del grupo 'gm'
-- hosts: gm
+- hosts: GymManager
   # Ajustamos el intérprete de ansible como python3
   vars:
     ansible_python_interpreter: /usr/bin/python3
@@ -8,6 +8,12 @@
   # Damos permisos de superusuario
   become: yes
   tasks:
+    - name: Descargar node
+      command: curl -sL https://deb.nodesource.com/setup_10.x -o tmp.sh
+
+    - name: Install node
+      command: bash tmp.sh
+
     # Hacemos un update de los paquetes con apt
     - name: Actualiza lista de paquetes apt
       apt:
@@ -18,12 +24,10 @@
       apt: 
         name: git
 
-    # Instalamos node y npm
-    - name: Instala node
+    - name: install nodejs
       apt: 
         name:
           - nodejs
-          - npm
 
     # Instalamos gulp globalmente
     - name: Instalar gulp
@@ -36,3 +40,20 @@
       npm:
         name: pm2
         global: yes
+
+    # Clonamos el repositorio de nuestra aplicación desde Github
+    - name: Clonar repositorio de la aplicación
+      git:
+        repo: https://github.com/i4vk/GymManager
+        dest: /home/vagrant/GymManager
+
+    # Instalamos dependencias propias de la aplicación
+    - name: Instalar dependencias de la aplicación
+      command: npm install
+      args:
+        chdir: /home/vagrant/GymManager
+
+    - name: Arrancar la aplicación
+      shell: gulp start &
+      args:
+        chdir: /home/vagrant/GymManager
