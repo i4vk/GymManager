@@ -192,6 +192,6 @@ Este playbook consta de las siguientes tareas:
 
 Como podemos observar también en el script de ansible, estamos ejecutando todas estas tareas sobre la máquina GymManager, que es el nombre que le dimos a la máquina al ser creada desde el vagrantfile. Dado que vagrant crea su propio inventario, no es necesario que lo creemos nosotros manualmente. Si tuvieramos más de una máquina y quisiéramos provisionarlas todas ellas, simplemente deberíamos cambiar los hosts y poner ```hosts: all```, para así provisionarlas todas al mismo tiempo.
 
-Finalmente, ya tenemos desplegada nuestra aplicación en la máquina virtual de azure. Si queremos acceder a ella, simplemente tenemos que ir al siguiente enlace:
+Finalmente, ya tenemos desplegada nuestra aplicación en la máquina virtual de azure. 
 
-    gymmanager.westeurope.cloudapp.azure.com:8080/status
+> Si queremos acceder a ella, simplemente tenemos que ir al siguiente enlace: gymmanager.westeurope.cloudapp.azure.com:8080/status
