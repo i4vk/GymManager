@@ -20,8 +20,8 @@ Las tareas disponibles son las siguientes:
 
 - **gulp doc**: Compila toda la documentación del proyecto y la almacena en el directorio docs/ haciendo una distinción entre cada uno de los archivos documentados. Por ahora, la documentación consistirá en una documentación de la clase principal, contenida en *docs/gymManager*, y posteriormente la documentación de la api REST contenida en *docs/rest*.
 
-- **gulp vm-start**: Inicia la ejecución de la máquina virtual definida mediante *Vagrant*.
+- **gulp vm-up**: Inicia la ejecución de la máquina virtual definida mediante *Vagrant*.
 
 - **gulp vm-stop**: Detiene la ejecución de la anterior VM.
 
-- **gulp vm-provide**: Realiza el aprovisionamiento de la máquina virtual comentada anteriormente.
+- **gulp vm-provision**: Realiza el aprovisionamiento de la máquina virtual comentada anteriormente.

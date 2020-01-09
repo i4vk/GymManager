@@ -72,9 +72,11 @@ Contenedor 2: https://gym-manager-iv.azurewebsites.net/
 
 Docker Hub: https://hub.docker.com/r/i4vk/gymmanager
 
-Provision: provision/playbook.yml
+Provision: despliegue/playbook.yml
 
 Vagrant Cloud: https://app.vagrantup.com/i4vk/boxes/gymmanager
+
+Despliegue final: http://40.68.124.222:8080/status
 
 ## Documentación
 
@@ -88,3 +90,4 @@ Vagrant Cloud: https://app.vagrantup.com/i4vk/boxes/gymmanager
 - Docker y DockerHub: [Docker](https://i4vk.github.io/GymManager/doc_docker)
 - Despliegue en PaaS mediante Docker: [Docker PaaS](https://i4vk.github.io/GymManager/despliegue_docker)
 - Instanciación y aprovisionamiento de VM: [Aprovisionamiento](https://i4vk.github.io/GymManager/doc_VM)
+- Despliegue final en la VM de Azure: [Vagrant y Azure](https://i4vk.github.io/GymManager/doc_vagrant_azure)

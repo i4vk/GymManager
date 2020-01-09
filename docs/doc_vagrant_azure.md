@@ -194,4 +194,4 @@ Como podemos observar también en el script de ansible, estamos ejecutando todas
 
 Finalmente, ya tenemos desplegada nuestra aplicación en la máquina virtual de azure. Si queremos acceder a ella, simplemente tenemos que ir al siguiente enlace:
 
-  gymmanager.westeurope.cloudapp.azure.com:8080/status
+    gymmanager.westeurope.cloudapp.azure.com:8080/status

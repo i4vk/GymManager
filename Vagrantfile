@@ -42,6 +42,6 @@ Vagrant.configure("2") do |config|
   # Indicamos provisionamiento a traves de ansible, con nuestro playbook
   config.vm.provision "ansible" do |ansible|
     # Ruta del playbook de ansible
-    ansible.playbook = "provision/playbook.yml"
+    ansible.playbook = "despliegue/playbook.yml"
   end
 end
