@@ -32,6 +32,7 @@ Vagrant.configure("2") do |config|
     # Nombre del grupo de recursos de azure
     azure.resource_group_name = "vm-vagrant"
 
+    # Abrimos el puerto en el que escuchará nuestra aplicación
     azure.tcp_endpoints = 8080
 
     # Localización en europa de la VM
@@ -40,8 +41,6 @@ Vagrant.configure("2") do |config|
 
   # Indicamos provisionamiento a traves de ansible, con nuestro playbook
   config.vm.provision "ansible" do |ansible|
-    # Ruta del fichero de inventario usado por ansible
-    ansible.inventory_path = "provision/inventory"
     # Ruta del playbook de ansible
     ansible.playbook = "provision/playbook.yml"
   end

@@ -70,7 +70,7 @@ gulp.task('coveralls', function(cb) {
 })
 
 // Instancia la VM
-gulp.task('vm-start', function(cb) {
+gulp.task('vm-up', function(cb) {
   exec('vagrant up --no-provision', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
@@ -88,7 +88,7 @@ gulp.task('vm-stop', function(cb) {
 })
 
 // Realiza el provisionamiento de la VM
-gulp.task('vm-provide', function(cb) {
+gulp.task('vm-provision', function(cb) {
   exec('vagrant provision', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
