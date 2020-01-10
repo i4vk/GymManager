@@ -76,7 +76,7 @@ Provision: despliegue/playbook.yml
 
 Vagrant Cloud: https://app.vagrantup.com/i4vk/boxes/gymmanager
 
-Despliegue final: http://40.68.124.222:8080/status
+Despliegue final: 40.68.124.222:8080
 
 ## Documentación
 
